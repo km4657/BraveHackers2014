@@ -4,16 +4,17 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
-import javax.ws.rs.core.MediaType;
 
-@Path("/rest")
+
+@Path("/report")
 public class ReportService {
 	@GET
-	@Produces(MediaType.APPLICATION_JSON)
+	@Produces("application/json")
 	@Path("/getUrlClicks")
 	public GetUrlClicksResponse getUrlClicks(@QueryParam("long_url" ) String long_url, @QueryParam("short_url") String short_url,
 			@QueryParam("user") String user)
 	{
 		return new GetUrlClicksResponse();
 	}
+	
 }
