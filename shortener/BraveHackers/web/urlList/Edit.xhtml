@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditUrlListTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditUrlListLabel_idPk}" for="idPk" />
+                    <h:inputText id="idPk" value="#{urlListController.selected.idPk}" title="#{bundle.EditUrlListTitle_idPk}" required="true" requiredMessage="#{bundle.EditUrlListRequiredMessage_idPk}"/>
+                    <h:outputLabel value="#{bundle.EditUrlListLabel_longurl}" for="longurl" />
+                    <h:inputText id="longurl" value="#{urlListController.selected.longurl}" title="#{bundle.EditUrlListTitle_longurl}" required="true" requiredMessage="#{bundle.EditUrlListRequiredMessage_longurl}"/>
+                    <h:outputLabel value="#{bundle.EditUrlListLabel_shorturl}" for="shorturl" />
+                    <h:inputText id="shorturl" value="#{urlListController.selected.shorturl}" title="#{bundle.EditUrlListTitle_shorturl}" />
+                    <h:outputLabel value="#{bundle.EditUrlListLabel_vanityurl}" for="vanityurl" />
+                    <h:inputText id="vanityurl" value="#{urlListController.selected.vanityurl}" title="#{bundle.EditUrlListTitle_vanityurl}" />
+                    <h:outputLabel value="#{bundle.EditUrlListLabel_email}" for="email" />
+                    <h:inputText id="email" value="#{urlListController.selected.email}" title="#{bundle.EditUrlListTitle_email}" />
+                    <h:outputLabel value="#{bundle.EditUrlListLabel_category}" for="category" />
+                    <h:inputText id="category" value="#{urlListController.selected.category}" title="#{bundle.EditUrlListTitle_category}" />
+                </h:panelGrid>
+                <h:commandLink action="#{urlListController.update}" value="#{bundle.EditUrlListSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditUrlListViewLink}"/>
+                <br />
+                <h:commandLink action="#{urlListController.prepareList}" value="#{bundle.EditUrlListShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditUrlListIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
