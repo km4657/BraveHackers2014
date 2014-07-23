@@ -31,6 +31,7 @@ public class ApplicationConfig extends Application {
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
         resources.add(com.att.bravehackers.clicks.entity.service.ClicksFacadeREST.class);
+        resources.add(com.att.bravehackers.redirect.entity.service.UrlListFacadeREST.class);
     }
     
 }
