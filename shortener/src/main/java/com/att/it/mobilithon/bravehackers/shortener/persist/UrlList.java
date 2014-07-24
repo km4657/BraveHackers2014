@@ -42,6 +42,8 @@ public class UrlList implements Serializable {
    @Id
    @Basic(optional = false)
    @NotNull
+   @SequenceGenerator(name="URL_LIST_GENERATOR", sequenceName="URL_LIST_SEQ")
+   @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="URL_LIST_GENERATOR")
    @Column(name = "ID_PK")
    private BigDecimal idPk;
    @Basic(optional = false)
