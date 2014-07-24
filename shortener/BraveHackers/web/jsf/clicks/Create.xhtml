@@ -23,6 +23,10 @@
                     <h:inputText id="sourceDomain" value="#{clicksController.selected.sourceDomain}" title="#{bundle.CreateClicksTitle_sourceDomain}" />
                     <h:outputLabel value="#{bundle.CreateClicksLabel_email}" for="email" />
                     <h:inputText id="email" value="#{clicksController.selected.email}" title="#{bundle.CreateClicksTitle_email}" />
+                    <h:outputLabel value="#{bundle.CreateClicksLabel_clickDate}" for="clickDate" />
+                    <h:inputText id="clickDate" value="#{clicksController.selected.clickDate}" title="#{bundle.CreateClicksTitle_clickDate}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{clicksController.create}" value="#{bundle.CreateClicksSaveLink}" />

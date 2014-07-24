@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jpa:entity-mappings status="GENERATED" id="_14062099228301" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm orm_2_1.xsd" xmlns:java="http://jcp.org/en/jsr/detail?id=270" xmlns:jpa="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <jpa:entity class="Clicks" compositePrimaryKeyType="NONE" minimized="false" id="_14062099228924">
+        <annotation>@javax.xml.bind.annotation.XmlRootElement</annotation>
+        <jpa:table name="CLICKS"/>
+        <jpa:attributes>
+            <jpa:id name="idPk" attribute-type="java.math.BigDecimal" id="_14062099228985">
+                <annotation>@javax.validation.constraints.NotNull</annotation>
+                <jpa:column name="ID_PK"/>
+                <jpa:sequence-generator name="ID_PK"/>
+            </jpa:id>
+            <jpa:basic name="idFkUrlList" optional="false" attribute-type="java.math.BigInteger" id="_14062099229016">
+                <annotation>@javax.validation.constraints.NotNull</annotation>
+                <jpa:column name="ID_FK_URL_LIST"/>
+            </jpa:basic>
+            <jpa:basic name="sourceDomain" attribute-type="java.lang.String" id="_14062099229017">
+                <annotation>@javax.validation.constraints.Size(max=255)</annotation>
+                <jpa:column name="SOURCE_DOMAIN"/>
+            </jpa:basic>
+            <jpa:basic name="email" attribute-type="java.lang.String" id="_14062099229028">
+                <annotation>@javax.validation.constraints.Size(max=2500)</annotation>
+                <jpa:column name="EMAIL"/>
+            </jpa:basic>
+            <jpa:basic name="clickDate" attribute-type="java.util.Date" id="_14062099229029">
+                <jpa:column name="CLICK_DATE"/>
+                <jpa:temporal>TIMESTAMP</jpa:temporal>
+            </jpa:basic>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity class="UrlList" compositePrimaryKeyType="NONE" minimized="false" id="_140620992293410">
+        <annotation>@javax.xml.bind.annotation.XmlRootElement</annotation>
+        <jpa:table name="URL_LIST"/>
+        <jpa:attributes>
+            <jpa:id name="idPk" attribute-type="java.math.BigDecimal" id="_140620992293411">
+                <annotation>@javax.validation.constraints.NotNull</annotation>
+                <jpa:column name="ID_PK"/>
+                <jpa:sequence-generator name="ID_PK"/>
+            </jpa:id>
+            <jpa:basic name="longurl" optional="false" attribute-type="java.lang.String" id="_140620992293412">
+                <annotation>@javax.validation.constraints.NotNull</annotation>
+                <annotation>@javax.validation.constraints.Size(min=1, max=2083)</annotation>
+                <jpa:column name="LONGURL"/>
+            </jpa:basic>
+            <jpa:basic name="shorturl" attribute-type="java.lang.String" id="_140620992293413">
+                <annotation>@javax.validation.constraints.Size(max=255)</annotation>
+                <jpa:column name="SHORTURL"/>
+            </jpa:basic>
+            <jpa:basic name="vanityurl" attribute-type="java.lang.String" id="_140620992293414">
+                <annotation>@javax.validation.constraints.Size(max=255)</annotation>
+                <jpa:column name="VANITYURL"/>
+            </jpa:basic>
+            <jpa:basic name="email" attribute-type="java.lang.String" id="_140620992293415">
+                <annotation>@javax.validation.constraints.Size(max=255)</annotation>
+                <jpa:column name="EMAIL"/>
+            </jpa:basic>
+            <jpa:basic name="category" attribute-type="java.lang.String" id="_140620992293416">
+                <annotation>@javax.validation.constraints.Size(max=255)</annotation>
+                <jpa:column name="CATEGORY"/>
+            </jpa:basic>
+            <jpa:basic name="expiredurl" attribute-type="java.lang.String" id="_140620992293417">
+                <annotation>@javax.validation.constraints.Size(max=2500)</annotation>
+                <jpa:column name="EXPIREDURL"/>
+            </jpa:basic>
+            <jpa:basic name="expireDate" attribute-type="java.util.Date" id="_140620992293418">
+                <jpa:column name="EXPIRE_DATE"/>
+                <jpa:temporal>TIMESTAMP</jpa:temporal>
+            </jpa:basic>
+            <jpa:basic name="urlName" attribute-type="java.lang.String" id="_140620992293419">
+                <annotation>@javax.validation.constraints.Size(max=255)</annotation>
+                <jpa:column name="URL_NAME"/>
+            </jpa:basic>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:diagram id="_14062099228322">
+        <plane elementRef="_14062099228301" id="_14062099228343_p"/>
+    </jpa:diagram>
+</jpa:entity-mappings>

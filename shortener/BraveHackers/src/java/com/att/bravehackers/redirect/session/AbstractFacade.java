@@ -3,17 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.att.bravehackers.redirect.session;
 
 import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 
 /**
  *
  * @author ML5174
  */
 public abstract class AbstractFacade<T> {
+
     private Class<T> entityClass;
 
     public AbstractFacade(Class<T> entityClass) {
@@ -36,6 +37,13 @@ public abstract class AbstractFacade<T> {
 
     public T find(Object id) {
         return getEntityManager().find(entityClass, id);
+    }
+    
+
+    public T findByShorturl(Object shortURL) {
+        TypedQuery<T> q = getEntityManager().createNamedQuery("UrlList.findByShorturl", entityClass);
+        q.setParameter("shorturl", shortURL);
+        return q.getSingleResult();
     }
 
     public List<T> findAll() {
@@ -60,5 +68,5 @@ public abstract class AbstractFacade<T> {
         javax.persistence.Query q = getEntityManager().createQuery(cq);
         return ((Long) q.getSingleResult()).intValue();
     }
-    
+
 }

@@ -27,6 +27,14 @@
                     <h:inputText id="email" value="#{urlListController.selected.email}" title="#{bundle.CreateUrlListTitle_email}" />
                     <h:outputLabel value="#{bundle.CreateUrlListLabel_category}" for="category" />
                     <h:inputText id="category" value="#{urlListController.selected.category}" title="#{bundle.CreateUrlListTitle_category}" />
+                    <h:outputLabel value="#{bundle.CreateUrlListLabel_expiredurl}" for="expiredurl" />
+                    <h:inputText id="expiredurl" value="#{urlListController.selected.expiredurl}" title="#{bundle.CreateUrlListTitle_expiredurl}" />
+                    <h:outputLabel value="#{bundle.CreateUrlListLabel_expireDate}" for="expireDate" />
+                    <h:inputText id="expireDate" value="#{urlListController.selected.expireDate}" title="#{bundle.CreateUrlListTitle_expireDate}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateUrlListLabel_urlName}" for="urlName" />
+                    <h:inputText id="urlName" value="#{urlListController.selected.urlName}" title="#{bundle.CreateUrlListTitle_urlName}" />
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{urlListController.create}" value="#{bundle.CreateUrlListSaveLink}" />

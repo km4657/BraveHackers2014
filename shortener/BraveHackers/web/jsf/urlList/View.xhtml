@@ -27,6 +27,14 @@
                     <h:outputText value="#{urlListController.selected.email}" title="#{bundle.ViewUrlListTitle_email}"/>
                     <h:outputText value="#{bundle.ViewUrlListLabel_category}"/>
                     <h:outputText value="#{urlListController.selected.category}" title="#{bundle.ViewUrlListTitle_category}"/>
+                    <h:outputText value="#{bundle.ViewUrlListLabel_expiredurl}"/>
+                    <h:outputText value="#{urlListController.selected.expiredurl}" title="#{bundle.ViewUrlListTitle_expiredurl}"/>
+                    <h:outputText value="#{bundle.ViewUrlListLabel_expireDate}"/>
+                    <h:outputText value="#{urlListController.selected.expireDate}" title="#{bundle.ViewUrlListTitle_expireDate}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewUrlListLabel_urlName}"/>
+                    <h:outputText value="#{urlListController.selected.urlName}" title="#{bundle.ViewUrlListTitle_urlName}"/>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{urlListController.destroyAndView}" value="#{bundle.ViewUrlListDestroyLink}"/>

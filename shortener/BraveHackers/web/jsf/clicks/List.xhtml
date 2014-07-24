@@ -46,6 +46,14 @@
                         </h:column>
                         <h:column>
                             <f:facet name="header">
+                                <h:outputText value="#{bundle.ListClicksTitle_clickDate}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.clickDate}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
                             <h:commandLink action="#{clicksController.prepareView}" value="#{bundle.ListClicksViewLink}"/>

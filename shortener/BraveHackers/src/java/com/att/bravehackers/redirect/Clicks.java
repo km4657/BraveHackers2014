@@ -9,6 +9,7 @@ package com.att.bravehackers.redirect;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,6 +17,8 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -32,7 +35,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Clicks.findByIdPk", query = "SELECT c FROM Clicks c WHERE c.idPk = :idPk"),
     @NamedQuery(name = "Clicks.findByIdFkUrlList", query = "SELECT c FROM Clicks c WHERE c.idFkUrlList = :idFkUrlList"),
     @NamedQuery(name = "Clicks.findBySourceDomain", query = "SELECT c FROM Clicks c WHERE c.sourceDomain = :sourceDomain"),
-    @NamedQuery(name = "Clicks.findByEmail", query = "SELECT c FROM Clicks c WHERE c.email = :email")})
+    @NamedQuery(name = "Clicks.findByEmail", query = "SELECT c FROM Clicks c WHERE c.email = :email"),
+    @NamedQuery(name = "Clicks.findByClickDate", query = "SELECT c FROM Clicks c WHERE c.clickDate = :clickDate")})
 public class Clicks implements Serializable {
     private static final long serialVersionUID = 1L;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
@@ -52,6 +56,9 @@ public class Clicks implements Serializable {
     @Size(max = 2500)
     @Column(name = "EMAIL")
     private String email;
+    @Column(name = "CLICK_DATE")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date clickDate;
 
     public Clicks() {
     }
@@ -95,6 +102,14 @@ public class Clicks implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Date getClickDate() {
+        return clickDate;
+    }
+
+    public void setClickDate(Date clickDate) {
+        this.clickDate = clickDate;
     }
 
     @Override

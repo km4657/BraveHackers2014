@@ -58,6 +58,26 @@
                         </h:column>
                         <h:column>
                             <f:facet name="header">
+                                <h:outputText value="#{bundle.ListUrlListTitle_expiredurl}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.expiredurl}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListUrlListTitle_expireDate}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.expireDate}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListUrlListTitle_urlName}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.urlName}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
                             <h:commandLink action="#{urlListController.prepareView}" value="#{bundle.ListUrlListViewLink}"/>

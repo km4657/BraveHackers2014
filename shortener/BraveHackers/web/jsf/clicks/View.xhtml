@@ -23,6 +23,10 @@
                     <h:outputText value="#{clicksController.selected.sourceDomain}" title="#{bundle.ViewClicksTitle_sourceDomain}"/>
                     <h:outputText value="#{bundle.ViewClicksLabel_email}"/>
                     <h:outputText value="#{clicksController.selected.email}" title="#{bundle.ViewClicksTitle_email}"/>
+                    <h:outputText value="#{bundle.ViewClicksLabel_clickDate}"/>
+                    <h:outputText value="#{clicksController.selected.clickDate}" title="#{bundle.ViewClicksTitle_clickDate}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{clicksController.destroyAndView}" value="#{bundle.ViewClicksDestroyLink}"/>

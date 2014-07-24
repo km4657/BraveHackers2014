@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.att.bravehackers.redirect;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,6 +21,9 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "Redirect", urlPatterns = {"/r"})
 public class Redirect extends HttpServlet {
 
+    @EJB
+    private com.att.bravehackers.redirect.session.UrlListFacade ejbFacade;
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -32,7 +35,11 @@ public class Redirect extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.sendRedirect("http://news.com");
+        String shorturl = request.getQueryString();
+        System.out.println("SHORTURL"+shorturl);
+        UrlList urlList = (UrlList)ejbFacade.findByShorturl(shorturl);
+        
+        response.sendRedirect(urlList.getLongurl());
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
