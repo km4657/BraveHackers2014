@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ML5174
  */
-@WebServlet(name = "Redirect", urlPatterns = {"/r"})
+@WebServlet(name = "Redirect", urlPatterns = {"/"})
 public class Redirect extends HttpServlet {
 
     @EJB
@@ -39,13 +39,28 @@ public class Redirect extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String shorturl = request.getQueryString();
-        System.out.println("SHORTURL" + shorturl);
-        UrlList urlList = (UrlList) urlListFacade.findByShorturl(shorturl);
-
-        response.sendRedirect(urlList.getLongurl());
 
         try {
+            String shorturl = request.getQueryString();
+            System.out.println("SHORTURL" + shorturl);
+            UrlList urlList = (UrlList) urlListFacade.findByShorturl(shorturl);
+
+            response.setContentType("text/html;charset=UTF-8");
+            try (PrintWriter out = response.getWriter()) {
+                /* TODO output your page here. You may use following sample code. */
+                out.println("<!DOCTYPE html>");
+                out.println("<html>");
+                out.println("<head>");
+                out.println("<title>Servlet NewServlet</title>");
+                out.println("</head>");
+                out.println("<body>");
+                out.println("<h1>Redirecting to " + urlList.getLongurl() + "</h1>");
+                out.println("</body>");
+                out.println("</html>");
+
+                response.sendRedirect(urlList.getLongurl());
+            }
+
             clicks = new Clicks();
             clicks.setClickDate(Calendar.getInstance().getTime());
             clicks.setEmail("getUserFromCookie");
@@ -54,6 +69,7 @@ public class Redirect extends HttpServlet {
             clicksFacade.create(clicks);
         } catch (Exception e) {
             System.out.println("EXCEPTION:" + e.getMessage());
+            response.sendRedirect("http://att.com");
         }
     }
 
