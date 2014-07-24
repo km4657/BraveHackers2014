@@ -8,14 +8,16 @@ package com.att.bravehackers.redirect;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -44,11 +46,13 @@ public class Clicks implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "ID_PK")
+    @SequenceGenerator(name="CLICKS_GENERATOR", sequenceName="CLICKS_SEQ")
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="CLICKS_GENERATOR")
     private BigDecimal idPk;
     @Basic(optional = false)
     @NotNull
     @Column(name = "ID_FK_URL_LIST")
-    private BigInteger idFkUrlList;
+    private BigDecimal idFkUrlList;
     @Size(max = 255)
     @Column(name = "SOURCE_DOMAIN")
     private String sourceDomain;
@@ -67,7 +71,7 @@ public class Clicks implements Serializable {
         this.idPk = idPk;
     }
 
-    public Clicks(BigDecimal idPk, BigInteger idFkUrlList) {
+    public Clicks(BigDecimal idPk, BigDecimal idFkUrlList) {
         this.idPk = idPk;
         this.idFkUrlList = idFkUrlList;
     }
@@ -80,11 +84,11 @@ public class Clicks implements Serializable {
         this.idPk = idPk;
     }
 
-    public BigInteger getIdFkUrlList() {
+    public BigDecimal getIdFkUrlList() {
         return idFkUrlList;
     }
 
-    public void setIdFkUrlList(BigInteger idFkUrlList) {
+    public void setIdFkUrlList(BigDecimal idFkUrlList) {
         this.idFkUrlList = idFkUrlList;
     }
 

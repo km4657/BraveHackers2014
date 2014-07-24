@@ -7,6 +7,7 @@ package com.att.bravehackers.redirect;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Calendar;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,7 +23,10 @@ import javax.servlet.http.HttpServletResponse;
 public class Redirect extends HttpServlet {
 
     @EJB
-    private com.att.bravehackers.redirect.session.UrlListFacade ejbFacade;
+    private com.att.bravehackers.redirect.session.UrlListFacade urlListFacade;
+    @EJB
+    private com.att.bravehackers.redirect.session.ClicksFacade clicksFacade;
+    private Clicks clicks;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,10 +40,21 @@ public class Redirect extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String shorturl = request.getQueryString();
-        System.out.println("SHORTURL"+shorturl);
-        UrlList urlList = (UrlList)ejbFacade.findByShorturl(shorturl);
-        
+        System.out.println("SHORTURL" + shorturl);
+        UrlList urlList = (UrlList) urlListFacade.findByShorturl(shorturl);
+
         response.sendRedirect(urlList.getLongurl());
+
+        try {
+            clicks = new Clicks();
+            clicks.setClickDate(Calendar.getInstance().getTime());
+            clicks.setEmail("getUserFromCookie");
+            clicks.setIdFkUrlList(urlList.getIdPk());
+            clicks.setSourceDomain(request.getRemoteHost());
+            clicksFacade.create(clicks);
+        } catch (Exception e) {
+            System.out.println("EXCEPTION:" + e.getMessage());
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
