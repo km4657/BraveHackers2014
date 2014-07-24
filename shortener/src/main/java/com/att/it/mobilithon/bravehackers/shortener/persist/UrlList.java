@@ -42,7 +42,6 @@ public class UrlList implements Serializable {
    @Id
    @Basic(optional = false)
    @NotNull
-  0000000000
    @Column(name = "ID_PK")
    private BigDecimal idPk;
    @Basic(optional = false)
