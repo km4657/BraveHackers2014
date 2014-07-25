@@ -1,10 +1,10 @@
 package com.att.it.mobilithon.bravehackers.shortener.persist;
 
-
 import java.io.Serializable;
 
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -16,6 +16,8 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -35,7 +37,10 @@ import javax.xml.bind.annotation.XmlRootElement;
    @NamedQuery(name = "UrlList.findByShorturl", query = "SELECT u FROM UrlList u WHERE u.shorturl = :shorturl"),
    @NamedQuery(name = "UrlList.findByVanityurl", query = "SELECT u FROM UrlList u WHERE u.vanityurl = :vanityurl"),
    @NamedQuery(name = "UrlList.findByEmail", query = "SELECT u FROM UrlList u WHERE u.email = :email"),
-   @NamedQuery(name = "UrlList.findByCategory", query = "SELECT u FROM UrlList u WHERE u.category = :category")})
+   @NamedQuery(name = "UrlList.findByCategory", query = "SELECT u FROM UrlList u WHERE u.category = :category"),
+   @NamedQuery(name = "UrlList.findByExpiredurl", query = "SELECT u FROM UrlList u WHERE u.expiredurl = :expiredurl"),
+   @NamedQuery(name = "UrlList.findByExpireDate", query = "SELECT u FROM UrlList u WHERE u.expireDate = :expireDate"),
+   @NamedQuery(name = "UrlList.findByUrlName", query = "SELECT u FROM UrlList u WHERE u.urlName = :urlName")})
 public class UrlList implements Serializable {
    private static final long serialVersionUID = 1L;
    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
@@ -64,6 +69,15 @@ public class UrlList implements Serializable {
    @Size(max = 255)
    @Column(name = "CATEGORY")
    private String category;
+   @Size(max = 2500)
+   @Column(name = "EXPIREDURL")
+   private String expiredurl;
+   @Column(name = "EXPIRE_DATE")
+   @Temporal(TemporalType.TIMESTAMP)
+   private Date expireDate;
+   @Size(max = 255)
+   @Column(name = "URL_NAME")
+   private String urlName;
 
    public UrlList() {
    }
@@ -125,6 +139,30 @@ public class UrlList implements Serializable {
        this.category = category;
    }
 
+   public String getExpiredurl() {
+       return expiredurl;
+   }
+
+   public void setExpiredurl(String expiredurl) {
+       this.expiredurl = expiredurl;
+   }
+
+   public Date getExpireDate() {
+       return expireDate;
+   }
+
+   public void setExpireDate(Date expireDate) {
+       this.expireDate = expireDate;
+   }
+
+   public String getUrlName() {
+       return urlName;
+   }
+
+   public void setUrlName(String urlName) {
+       this.urlName = urlName;
+   }
+
    @Override
    public int hashCode() {
        int hash = 0;
@@ -149,4 +187,5 @@ public class UrlList implements Serializable {
    public String toString() {
        return "com.att.bravehackers.redirect.UrlList[ idPk=" + idPk + " ]";
    }
+   
 }
