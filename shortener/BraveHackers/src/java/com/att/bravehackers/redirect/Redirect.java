@@ -40,37 +40,29 @@ public class Redirect extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        System.out.println("\n\n\n************START*************\n\n:");
+
+        String shorturl = request.getQueryString();
+        if (shorturl == null) {
+            shorturl = request.getRequestURI();
+        }
+        shorturl = shorturl.substring(shorturl.lastIndexOf("/") + 1);
+
+        UrlList urlList = (UrlList) urlListFacade.findByShorturl(shorturl);
         try {
-            String shorturl = request.getQueryString();
-            System.out.println("SHORTURL" + shorturl);
-            UrlList urlList = (UrlList) urlListFacade.findByShorturl(shorturl);
+            response.sendRedirect(urlList.getLongurl());
 
-            response.setContentType("text/html;charset=UTF-8");
-            try (PrintWriter out = response.getWriter()) {
-                /* TODO output your page here. You may use following sample code. */
-                out.println("<!DOCTYPE html>");
-                out.println("<html>");
-                out.println("<head>");
-                out.println("<title>Servlet NewServlet</title>");
-                out.println("</head>");
-                out.println("<body>");
-                out.println("<h1>Redirecting to " + urlList.getLongurl() + "</h1>");
-                out.println("</body>");
-                out.println("</html>");
-
-                response.sendRedirect(urlList.getLongurl());
-            }
-
-            clicks = new Clicks();
-            clicks.setClickDate(Calendar.getInstance().getTime());
-            clicks.setEmail("getUserFromCookie");
-            clicks.setIdFkUrlList(urlList.getIdPk());
-            clicks.setSourceDomain(request.getRemoteHost());
-            clicksFacade.create(clicks);
         } catch (Exception e) {
             System.out.println("EXCEPTION:" + e.getMessage());
             response.sendRedirect("http://att.com");
         }
+
+        clicks = new Clicks();
+        clicks.setClickDate(Calendar.getInstance().getTime());
+        clicks.setEmail("getUserFromCookie");
+        clicks.setIdFkUrlList(urlList.getIdPk());
+        clicks.setSourceDomain(request.getRemoteHost());
+        clicksFacade.create(clicks);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

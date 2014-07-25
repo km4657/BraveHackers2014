@@ -23,7 +23,9 @@
             <input type="text" ng-model="url" placeholder="Enter a smallURL hash">
             <hr>
             <a href="http://gardg71hh86ks1.snt.bst.bls.com:8080/r?{{url}}"><h1>http://att.com/r?{{url}}</h1></a>
+            
         </div>
+        
     </body>
 </html>
 </f:view>

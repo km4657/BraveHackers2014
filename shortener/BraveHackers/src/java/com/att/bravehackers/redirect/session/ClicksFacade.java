@@ -7,6 +7,7 @@
 package com.att.bravehackers.redirect.session;
 
 import com.att.bravehackers.redirect.Clicks;
+import javax.ejb.Asynchronous;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -16,6 +17,7 @@ import javax.persistence.PersistenceContext;
  * @author ML5174
  */
 @Stateless
+@Asynchronous
 public class ClicksFacade extends AbstractFacade<Clicks> {
     @PersistenceContext(unitName = "BraveHackersPU")
     private EntityManager em;
@@ -29,4 +31,12 @@ public class ClicksFacade extends AbstractFacade<Clicks> {
         super(Clicks.class);
     }
     
+    @Override
+    public void create(Clicks entity) {
+        try {
+            getEntityManager().persist(entity);
+        } catch(javax.persistence.PersistenceException e) {
+            System.out.println("\n\nEXCEPTION: "+e);
+        }
+    }
 }
