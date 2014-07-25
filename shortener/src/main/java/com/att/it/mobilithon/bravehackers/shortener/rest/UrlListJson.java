@@ -1,5 +1,7 @@
 package com.att.it.mobilithon.bravehackers.shortener.rest;
 
+import java.util.Date;
+
 
 public class UrlListJson {
 	  
@@ -12,6 +14,13 @@ public class UrlListJson {
 	   private String email;
 	 
 	   private String category;
+	   
+	   private String expiredurl;
+	  
+	   private String expiredate;
+	   
+	   private String urlname;
+
 
 	public String getLongurl() {
 		return longurl;
@@ -52,6 +61,33 @@ public class UrlListJson {
 	public void setCategory(String category) {
 		this.category = category;
 	}
+
+	public String getExpiredurl() {
+		return expiredurl;
+	}
+
+	public void setExpiredurl(String expiredurl) {
+		this.expiredurl = expiredurl;
+	}
+
+	public String getExpiredate() {
+		return expiredate;
+	}
+
+	public void setExpiredate(String expiredate) {
+		this.expiredate = expiredate;
+	}
+
+	public String getUrlname() {
+		return urlname;
+	}
+
+	public void setUrlname(String urlname) {
+		this.urlname = urlname;
+	}
+
+	
+	
 
 	   
 	   
