@@ -100,8 +100,13 @@ public class ShortenerService {
 			// above will ensure that list size = 1
 			UrlList returnedUrlList = (UrlList) q.getResultList().get(0);
 
-			shorturl = ShortURL.encode(returnedUrlList.getIdPk()
-					.intValueExact());
+			if (vanityurl != null && vanityurl.trim().length() > 0) {
+				shorturl = vanityurl;
+			}
+			else
+			{
+				shorturl = ShortURL.encode(returnedUrlList.getIdPk().intValueExact());
+			}
 			logger.info("shorturl: " + shorturl);
 			newUrlList.setShorturl(shorturl);
 			objEntityManager.merge(newUrlList);
