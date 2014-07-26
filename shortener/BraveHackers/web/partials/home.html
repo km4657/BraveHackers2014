@@ -24,12 +24,11 @@
                         <hr class="hr-large">
 
                         <ul class="list">
-                            <li class="section-heading">AT&amp;T</li>
-                            <li><a href="#" class="shorturl">link1</a></li>
-                            <li><a href="#" class="shorturl">link2</a></li>
-                            <li class="section-heading" ng-repeat="url in urls">{{url.category}}</li>
-                            <li><a href="#/history/{{u.id}}" class="shorturl" ng-repeat="u in urls">{{u.urlName}}</a></li>
-                            <li><a href="#" class="shorturl">link2</a></li>
+                            <li class="section-heading" ng-repeat="c in categories">{{c}}
+                                <ul class="list">
+                            <li><a href="#/history/{{u.idPk}}" class="shorturl" ng-repeat="u in urls | filter:{category:c}">{{u.urlName}}</a></li>
+                                </ul>
+                            </li>
                             
                         </ul>
 

@@ -7,11 +7,13 @@
 package com.att.bravehackers.redirect.service;
 
 import com.att.bravehackers.redirect.Clicks;
+import com.att.bravehackers.redirect.UrlList;
 import java.math.BigDecimal;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -20,6 +22,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 
 /**
  *
@@ -60,6 +63,15 @@ public class ClicksFacadeREST extends AbstractFacade<Clicks> {
     @Produces({"application/xml", "application/json"})
     public Clicks find(@PathParam("id") BigDecimal id) {
         return super.find(id);
+    }
+    
+    @GET
+    @Path("query") 
+    @Produces({"application/xml", "application/json"})
+    public List<Clicks> findByIDFK(@QueryParam("idFk") BigDecimal idFkUrlList) {
+        TypedQuery<Clicks> q = getEntityManager().createNamedQuery("Clicks.findByIdFkUrlList", Clicks.class);
+        q.setParameter("idFkUrlList", idFkUrlList);
+        return q.getResultList();
     }
 
     @GET
