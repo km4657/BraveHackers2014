@@ -6,6 +6,7 @@
 
 package com.att.bravehackers.redirect.service;
 
+import com.att.bravehackers.redirect.ShortURL;
 import com.att.bravehackers.redirect.UrlList;
 import java.math.BigDecimal;
 import java.util.List;
@@ -21,6 +22,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.persistence.TypedQuery;
 import javax.ws.rs.QueryParam;
 
 /**
@@ -36,13 +38,32 @@ public class UrlListFacadeREST extends AbstractFacade<UrlList> {
     public UrlListFacadeREST() {
         super(UrlList.class);
     }
-
-    @POST
+    
     @Override
-    @Consumes({"application/xml", "application/json"})
-    public void create(UrlList entity) {
+    @POST
+    @Consumes("application/json")
+    @Produces("application/json")
+    public UrlList create(UrlList entity) {
         super.create(entity);
-        System.out.println("entity:"+entity.toString());
+        
+        String vanityurl = entity.getVanityurl();
+        TypedQuery<UrlList> q = getEntityManager().createNamedQuery("UrlList.findByShorturl", UrlList.class);
+        q.setParameter("shorturl",vanityurl);
+        
+        if (q.getResultList().isEmpty()&& vanityurl!=null && vanityurl.trim().length() >0)
+        {
+           // can use vanity url as short url
+            String shorturl = vanityurl;
+            entity.setShorturl(shorturl);     
+        }
+        else
+        {
+           // can not use vanity url, generate new shorturl
+            String shorturl = ShortURL.encode(entity.getIdPk().intValueExact());
+            entity.setShorturl(shorturl);     
+        }
+        super.edit(entity);
+        return entity;
     }
 
     @PUT
