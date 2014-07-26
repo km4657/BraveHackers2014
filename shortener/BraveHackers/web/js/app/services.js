@@ -17,6 +17,23 @@ angular.module('myApp.services', ['ngResource'])
                 }),
                 myURLs: $resource('http://localhost:8080/r/webresources/com.att.bravehackers.redirect.urllist/query?email=weolopez@yahoo.com', {}, {
                     get: {method: "GET", isArray: true}
-                })
+                }),
+                postGetURL: $resource('http://localhost:8080/r/webresources/com.att.bravehackers.redirect.urllist',  {} , {
+                        post: {
+                            headers: {
+                                'Content-Type':'application/json'
+                            }                           
+                        }
+                    })
             }
-        });
+        })
+        .factory('PostGetURL', function($resource) {
+            return $resource('http://localhost:8080/r/webresources/com.att.bravehackers.redirect.urllist',{} , {
+                        post: {
+                            headers: {
+                                'Content-Type':'application/json'
+                            }                           
+                        }
+                    })
+            }
+        );
