@@ -39,7 +39,7 @@ public class ClicksInfoServlet extends HttpServlet {
     			int urlId = Integer.parseInt(request.getParameter("urlId"));
     			
     			// get url info
-    			PreparedStatement ps = conn.prepareStatement("select id_pk,longurl,shorturl,category "+
+    			PreparedStatement ps = conn.prepareStatement("select id_pk,longurl,shorturl,category,url_name "+
     					"from url_list "+
     					"where id_pk=?");
     			ps.setInt(1, urlId);
@@ -50,6 +50,7 @@ public class ClicksInfoServlet extends HttpServlet {
     				info.longUrl=rs.getString(2);
     				info.shortUrl=rs.getString(3);
     				info.category=rs.getString(4);
+    				info.name=rs.getString(5);
     			}
     			
     			// get total clicks
