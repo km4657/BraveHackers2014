@@ -1,6 +1,7 @@
 <section class="row main-content">
     <div class="span12">
         <div class="page-header">
+            <a href="#"><i class="cssIcon-chevron-r-b"></i></a>
             <h1>New URL</h1>
             <div class="pull-right">
                 <p>Back <a href="#/home">Home</a></p>
@@ -15,32 +16,34 @@
                     <input type="text" id="url_name" placeholder="ex: MyURL" class="span12" ng-model="url.urlName">
                     <button type="button" class="reset-field hide-text">Reset field</button>
                 </div>
-                <label for="category">Category</label>
-                <select class="mod-select span3" id="category" ng-model="url.category">
-                    <option value="xxx-1">Uverse</option>
-                    <option value="xxx-2">Wireless</option>
-                    <option value="xxx-3">Digital Life</option>
-                    <option value="xxx-4">Business</option>
-                </select>
-                <label for="vanity_url">Custom URL</label>
                 <div class="field-group">
+                    <label for="category">Category</label>
+                    <select id="category"  ng-model="url.category" class="selectpicker span12" ng-options="c for c in categories"></select>                    
+                </div>
+                <div class="field-group">
+                    <label for="vanity_url">Custom URL</label>
                     <input type="text" id="vanity_url" placeholder="ex: www.att.com/myurl" class="span12" ng-model="url.vanityurl">
                     <button type="button" class="reset-field hide-text">Reset field</button>
                 </div>
                 <label for="long_url">My Long URL</label>
                 <span class="field-group block">
-                    <textarea rows="3" class="span12" id="long_url" ng-model="url.longurl"></textarea>
+                    <textarea rows="3" class="span12" id="long_url"placeholder="ex: www.att.com/myurl" ng-model="url.longurl"></textarea>
                     <button type="button" class="reset-field hide-text">Reset field</button>
                 </span>
                 <label for="expired_url">If Expired URL</label>
                 <span class="field-group block">
-                    <textarea rows="3" class="span12" id="expired_url"></textarea>
+                    <textarea rows="3" class="span12" id="expired_url" placeholder="ex: www.att.com/myurl" ng-model="url.expiredurl" ></textarea>
                     <button type="button" class="reset-field hide-text">Reset field</button>
                 </span>
                 <label for="exp_date">Expiration Date</label>
-                <span class="field-group block">
-                    <input type="text" placeholder="{{date}}" class="span12" data-provide="datepicker" required="required" id="exp_date">
-                </span>
+                <div class="col-md-6">
+                    <p class="input-group">
+                        <input type="text" class="form-control" placeholder="dd-MM-yyyy" datepicker-popup="dd-MM-yyyy" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </p>
+                </div>
                 <div class="row-fluid-nowrap content-pad">
                     <div class="span12">
                         <button class="btn btn-large btn-large btn-block" type="button" ng-click="getURL()">http://att.com/r/{{shorturl}}</button>
