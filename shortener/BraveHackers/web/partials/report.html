@@ -1,0 +1,67 @@
+<section class="row main-content">
+		<div class="span12">
+			<div class="page-header">
+				<h1>My URL Report</h1>
+				<div class="pull-right">
+					<p>Back <a href="#/history">History</a></p>
+				</div>
+			</div>
+			<hr class="hr-large">
+			
+			
+			
+			<div class="row-fluid" id="link-list"> 
+
+				<div style="background-color: #f2f2f2; padding:10px 15px">
+						<input type="text" placeholder="Filter Links" class="search searchInput ui-input-text ui-body-c" />
+				</div>				 
+				
+  				<hr class="hr-large">
+			
+				<table class="table table-bordered table-striped">
+   					<thead>
+     					<tr>
+         					<th scope="col">URL</th>
+         					<th scope="col"># Clicks</th>
+        
+      					</tr>
+   					</thead>
+   					<tbody class="list">
+      					<tr>
+         					<td class="shorturl">url1</td>
+         					<td>35</td>
+         
+      					</tr>
+      					<tr>
+         					<td class="shorturl">url2</td>
+         					<td>35</td>
+         
+      					</tr>
+      					<tr>
+         					<td class="shorturl">url3</td>
+         					<td>35</td>
+         
+      					</tr>
+      					<tr>
+         					<td class="shorturl">url4</td>
+         					<td>35</td>
+         
+      					</tr>
+      
+   					</tbody>
+				</table>
+				
+				
+			</div>
+			<script type="text/javascript"> 
+				
+
+				var options = {
+ 					valueNames: ['shorturl']
+				};
+
+				var shorturlList = new List('link-list', options);
+
+			</script>
+		</div>
+	</section>
