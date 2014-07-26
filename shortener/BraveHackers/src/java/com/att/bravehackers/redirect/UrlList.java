@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.att.bravehackers.redirect;
 
 import java.io.Serializable;
@@ -12,9 +11,12 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -41,15 +43,17 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "UrlList.findByExpireDate", query = "SELECT u FROM UrlList u WHERE u.expireDate = :expireDate"),
     @NamedQuery(name = "UrlList.findByUrlName", query = "SELECT u FROM UrlList u WHERE u.urlName = :urlName")})
 public class UrlList implements Serializable {
+
     private static final long serialVersionUID = 1L;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
     @Basic(optional = false)
     @NotNull
     @Column(name = "ID_PK")
+    @SequenceGenerator(name = "URL_LIST_GENERATOR", sequenceName = "URL_LIST_SEQ",allocationSize=1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "URL_LIST_GENERATOR")
     private BigDecimal idPk;
     @Basic(optional = false)
-    @NotNull
     @Size(min = 1, max = 2083)
     @Column(name = "LONGURL")
     private String longurl;
@@ -184,5 +188,5 @@ public class UrlList implements Serializable {
     public String toString() {
         return "com.att.bravehackers.redirect.UrlList[ idPk=" + idPk + " ]";
     }
-    
+
 }

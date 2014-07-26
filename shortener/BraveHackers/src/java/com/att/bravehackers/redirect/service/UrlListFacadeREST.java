@@ -40,6 +40,7 @@ public class UrlListFacadeREST extends AbstractFacade<UrlList> {
     @Consumes({"application/xml", "application/json"})
     public void create(UrlList entity) {
         super.create(entity);
+        System.out.println("entity:"+entity.toString());
     }
 
     @PUT

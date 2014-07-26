@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ML5174
  */
-@WebServlet(name = "Redirect", urlPatterns = {"/"})
+@WebServlet(name = "Redirect", urlPatterns = {"/r"})
 public class Redirect extends HttpServlet {
 
     @EJB
