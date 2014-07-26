@@ -41,8 +41,9 @@ public class ClicksFacadeREST extends AbstractFacade<Clicks> {
     @POST
     @Override
     @Consumes({"application/xml", "application/json"})
-    public void create(Clicks entity) {
+    public Clicks create(Clicks entity) {
         super.create(entity);
+        return entity;
     }
 
     @PUT
