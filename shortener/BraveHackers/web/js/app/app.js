@@ -12,8 +12,8 @@ angular.module('myApp', [
   'myApp.controllers'
 ]).
 config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/home', {templateUrl: 'partials/home.html', controller: 'HomeCtrl', resolve:{
-    URLs:function(MyURLs){return MyURLs.myURLs.get();}
+  $routeProvider.when('/home/:id', {templateUrl: 'partials/home.html', controller: 'HomeCtrl', resolve:{
+    URLs:function(MyURLs, $route){return MyURLs.myURLs.get({id:$route.current.params.id});}
   }});
   $routeProvider.when('/create', {templateUrl: 'partials/create.html', controller: 'CreateCtrl'});
   $routeProvider.when('/history/:id', {templateUrl: 'partials/history.html', controller: 'HistoryCtrl', resolve:{
@@ -22,5 +22,5 @@ config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/report/:id', {templateUrl: 'partials/report.html', controller: 'ReportCtrl', resolve:{
     clicks:function(MyURLs, $route){return MyURLs.getClicks.get({id:$route.current.params.id});}
   }});
-  $routeProvider.otherwise({redirectTo: '/home'});
+  $routeProvider.otherwise({redirectTo: '/home/weolopez%40yahoo.com'});
 }]);

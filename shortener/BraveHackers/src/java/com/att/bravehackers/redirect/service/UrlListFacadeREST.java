@@ -14,6 +14,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -22,8 +23,8 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.persistence.TypedQuery;
 import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.Context;
 
 /**
  *
@@ -83,23 +84,26 @@ public class UrlListFacadeREST extends AbstractFacade<UrlList> {
     @Path("{id}")
     @Produces({"application/xml", "application/json"})
     public UrlList find(@PathParam("id") BigDecimal id) {
+        
         return super.find(id);
     }
     
     @GET
     @Path("query")
     @Produces({"application/xml", "application/json"})
-    public List<UrlList> find(@QueryParam("email") String email) {
+    public List<UrlList> find(@QueryParam("email") String email, @Context HttpServletRequest httpRequest) {
         TypedQuery<UrlList> q = getEntityManager().createNamedQuery("UrlList.findByEmail", UrlList.class);
         q.setParameter("email", email);
         return q.getResultList();
     }
 
     @GET
-    @Override
     @Produces({"application/xml", "application/json"})
-    public List<UrlList> findAll() {
-        return super.findAll();
+    public List<UrlList> findAll(@Context HttpServletRequest httpRequest) {
+        String email = httpRequest.getUserPrincipal().getName();
+        TypedQuery<UrlList> q = getEntityManager().createNamedQuery("UrlList.findByEmail", UrlList.class);
+        q.setParameter("email", email);
+        return q.getResultList();
     }
 
     @GET

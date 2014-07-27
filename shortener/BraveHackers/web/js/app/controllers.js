@@ -36,9 +36,15 @@ angular.module('myApp.controllers', ['ngResource'])
             };
             $scope.toggleMin();
         })
-        .controller('HistoryCtrl', function($scope, URL) {
+        .controller('HistoryCtrl', function($scope, $location, URL) {
             $scope.url = URL;
+            $scope.goToReport = function() {
+                    $location.url('report/'+$scope.url.idPk);
+            }
         })
-        .controller('ReportCtrl', function($scope, clicks) {
-            $scope.clicks = clicks;
+        .controller('ReportCtrl', function($scope, $location, clicks) {
+            $scope.clicks = clicks;;
+            $scope.goToHistory = function() {
+                    $location.url('/history/'+$scope.clicks[0].idFkUrlList);
+            }
         });

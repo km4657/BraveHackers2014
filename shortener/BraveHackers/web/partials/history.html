@@ -1,43 +1,50 @@
 <section class="row main-content">
-		<div class="span12">
-			<div class="page-header">
-				<h1>My URL History</h1>
-				<div class="pull-right">
-					<p>Back <a href="#/home">Home</a></p>
-				</div>
-			</div>
-			<hr class="hr-large">
-			
-			<div class="row-fluid-nowrap content-pad">
-				<dl>
-   					<!--dt>Total Clicks</dt>
-   					<dd>32</dd>
-   					
-   					<dt>Clicks This Week</dt>
-   					<dd>12</dd-->
+    <div class="span12">
+        <div class="page-header">            
+            <div class="pull-left" style="width: 80px; top: 30px" ng-click="goToReport()">
+                    <p><i class="cssIcon-chevron-r-b" style=" float: left; margin-right: 10px; margin-top: 2px;"></i>Back</p>
+            </div>
+            <h1>My URL History</h1>
+            <div class="pull-right" style="width: 125px;top: 30px; margin-top: -29px">
+                <a href="#/home">
+                    <p style="float: left; margin-right: 10px; margin-top: 2px;">Home 
+                        <i class="cssIcon-chevron-l-b" style="float: right;margin-left: 20px;margin-top: -15px;"></i>
+                    </p>
+                </a>
+            </div>
+        </div>
+        <hr class="hr-large">
 
-   					<dt>URL Name</dt>
-   					<dd>{{url.urlName}}</dd>
-   					
-   					<dt>Category</dt>
-   					<dd>{{url.category}}</dd>
+        <div class="row-fluid-nowrap content-pad">
+            <dl>
+                <!--dt>Total Clicks</dt>
+                <dd>32</dd>
+                
+                <dt>Clicks This Week</dt>
+                <dd>12</dd-->
 
-   					<dt>Vanity URL</dt>
-   					<dd>{{url.vanityurl}}</dd>
+                <dt>URL Name</dt>
+                <dd>{{url.urlName}}</dd>
 
-   					<dt>My Long URL</dt>
-   					<dd>{{url.longurl}}</dd>
+                <dt>Category</dt>
+                <dd>{{url.category}}</dd>
 
-   					<dt>URL if Expired</dt>
-   					<dd>{{url.expiredurl}}</dd>
+                <dt>Vanity URL</dt>
+                <dd>{{url.vanityurl}}</dd>
 
-   					<dt>Expiration Date</dt>
-   					<dd>{{url.date}}</dd>
+                <dt>My Long URL</dt>
+                <dd>{{url.longurl}}</dd>
 
-				</dl>
-			</div>
-			
-			<hr class="hr-large">
-			
-		</div>
-	</section>
+                <dt>URL if Expired</dt>
+                <dd>{{url.expiredurl}}</dd>
+
+                <dt>Expiration Date</dt>
+                <dd>{{url.date}}</dd>
+
+            </dl>
+        </div>
+
+        <hr class="hr-large">
+
+    </div>
+</section>
