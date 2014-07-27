@@ -40,7 +40,7 @@
         </init-param>
         <init-param>
             <param-name>mustAuthenticate</param-name>
-            <param-value>true</param-value>
+            <param-value>false</param-value>
         </init-param>
         <init-param>
             <param-name>validate</param-name>

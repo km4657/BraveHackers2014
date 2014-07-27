@@ -31,7 +31,9 @@
                 <label>CRUD App:</label>
                 <a href="http://{{url}}/faces/shortener/index.xhtml"><h1>http://{{url}}/faces/shortener/index.xhtml</h1></a>
 
-                Weo's: gacdtl03ml5174.itservices.sbc.com:8080
+                <ul>
+                    <li>Weo's: gacdtl03ml5174.itservices.sbc.com:8080</li>
+                </ul>
             </div>
 
         </body>
