@@ -42,12 +42,13 @@ public class Redirect extends HttpServlet {
             throws ServletException, IOException {
 
         System.out.println("\n\n\n************START*************\n\n:");
+        /*
         if (request.getLocalName().equalsIgnoreCase("localhost")) {
             String newURL = request.getRequestURL().toString().replaceAll("localhost",InetAddress.getLocalHost().getHostName());
             response.sendRedirect(newURL+request.getQueryString());
             return;
         }
-               
+               */
 
         String shorturl = request.getQueryString();
         if (shorturl == null) {
