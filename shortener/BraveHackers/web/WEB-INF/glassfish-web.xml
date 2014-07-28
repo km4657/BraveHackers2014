@@ -9,7 +9,4 @@
     </property>
   </jsp-config>
   
-    <welcome-file-list>
-        <welcome-file>/faces/shortener/testAngular.jsp</welcome-file>
-    </welcome-file-list>
 </glassfish-web-app>
