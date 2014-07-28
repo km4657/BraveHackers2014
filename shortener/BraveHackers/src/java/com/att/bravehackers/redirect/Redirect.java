@@ -40,38 +40,49 @@ public class Redirect extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        UrlList urlList;
         System.out.println("\n\n\n************START*************\n\n:");
         /*
-        if (request.getLocalName().equalsIgnoreCase("localhost")) {
-            String newURL = request.getRequestURL().toString().replaceAll("localhost",InetAddress.getLocalHost().getHostName());
-            response.sendRedirect(newURL+request.getQueryString());
-            return;
-        }
-               */
+         if (request.getLocalName().equalsIgnoreCase("localhost")) {
+         String newURL = request.getRequestURL().toString().replaceAll("localhost",InetAddress.getLocalHost().getHostName());
+         response.sendRedirect(newURL+request.getQueryString());
+         return;
+         }
+         */
 
         String shorturl = request.getQueryString();
         if (shorturl == null) {
             shorturl = request.getRequestURI();
         }
-        shorturl = shorturl.substring(shorturl.lastIndexOf("/") + 1);
+        //shorturl = shorturl.substring(shorturl.lastIndexOf("/") + 1);
+        System.out.println("SHORTURL:" + shorturl);
 
-        UrlList urlList = (UrlList) urlListFacade.findByShorturl(shorturl);
-        
-        
         try {
-            response.sendRedirect(urlList.getLongurl());
+            urlList = (UrlList) urlListFacade.findByShorturl(shorturl);
+            if (urlList.getDescription()!=null) {
+                request.setAttribute("URL", urlList);
+                request.getRequestDispatcher("/faces/redirect.jsp").forward(request, response);
+            }
+            else 
+                response.sendRedirect(urlList.getLongurl());
         } catch (Exception e) {
-            System.out.println("EXCEPTION:" + e.getMessage());
+            System.out.println("EXCEPTION in findByShorturl or sendRedirect:" + e.getMessage());
             response.sendRedirect("http://att.com");
+            return;
         }
 
-        clicks = new Clicks();
-        clicks.setClickDate(Calendar.getInstance().getTime());
-        clicks.setEmail("getUserFromCookie");
-        clicks.setIdFkUrlList(urlList.getIdPk());
-        clicks.setSourceDomain(request.getRemoteHost());
-        clicksFacade.create(clicks);
+        try {
+            clicks = new Clicks();
+            clicks.setClickDate(Calendar.getInstance().getTime());
+            clicks.setEmail("getUserFromCookie");
+            clicks.setIdFkUrlList(urlList.getIdPk());
+            clicks.setSourceDomain(request.getRemoteHost());
+            clicksFacade.create(clicks);
+        } catch (Exception e) {
+            System.out.println("EXCEPTION in Clicks:" + e.getMessage());
+            response.sendRedirect("http://att.com");
+            return;
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

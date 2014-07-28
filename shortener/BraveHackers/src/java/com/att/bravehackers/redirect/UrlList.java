@@ -41,7 +41,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "UrlList.findByCategory", query = "SELECT u FROM UrlList u WHERE u.category = :category"),
     @NamedQuery(name = "UrlList.findByExpiredurl", query = "SELECT u FROM UrlList u WHERE u.expiredurl = :expiredurl"),
     @NamedQuery(name = "UrlList.findByExpireDate", query = "SELECT u FROM UrlList u WHERE u.expireDate = :expireDate"),
-    @NamedQuery(name = "UrlList.findByUrlName", query = "SELECT u FROM UrlList u WHERE u.urlName = :urlName")})
+    @NamedQuery(name = "UrlList.findByUrlName", query = "SELECT u FROM UrlList u WHERE u.urlName = :urlName"),
+    @NamedQuery(name = "UrlList.findByDescription", query = "SELECT u FROM UrlList u WHERE u.description = :description")})
 public class UrlList implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -79,7 +80,9 @@ public class UrlList implements Serializable {
     @Size(max = 255)
     @Column(name = "URL_NAME")
     private String urlName;
-
+    @Size(max = 2500)
+    @Column(name = "DESCRIPTION")
+    private String description;
     public UrlList() {
     }
 
@@ -164,6 +167,14 @@ public class UrlList implements Serializable {
         this.urlName = urlName;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.urlName = description;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 0;
