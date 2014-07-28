@@ -15,7 +15,7 @@ angular.module('myApp.services', ['ngResource'])
                 selectedURL: $resource('/webresources/com.att.bravehackers.redirect.urllist/:id', {id:'@id'}, {
                     get: {method: "GET", isArray: false}
                 }),
-                myURLs: $resource('/webresources/com.att.bravehackers.redirect.urllist/query?email=:id', {}, {
+                myURLs: $resource('/webresources/com.att.bravehackers.redirect.urllist', {}, {
                     get: {method: "GET", isArray: true}
                 }),
                 postGetURL: $resource('/webresources/com.att.bravehackers.redirect.urllist',  {} , {

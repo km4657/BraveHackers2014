@@ -45,6 +45,6 @@ angular.module('myApp.controllers', ['ngResource'])
         .controller('ReportCtrl', function($scope, $location, clicks) {
             $scope.clicks = clicks;;
             $scope.goToHistory = function() {
-                    $location.url('/history/'+$scope.clicks[0].idFkUrlList);
+                    $location.url('history/'+$scope.clicks[0].idFkUrlList);
             }
         });

@@ -1,11 +1,11 @@
 <section class="row main-content">
     <div class="span12">
         <div class="page-header">
-            <a href="#"><i class="cssIcon-chevron-r-b"></i></a>
-            <h1>New URL</h1>
-            <div class="pull-right">
-                <p>Back <a href="#/home">Home</a></p>
+            <div class="pull-left" style="width: 80px; top: 30px" >
+                <a href="#">
+                    <p><i class="cssIcon-chevron-r-b" style=" float: left; margin-right: 10px; margin-top: 2px;"></i>Back</p></a>
             </div>
+            <h1>New URL</h1>
         </div>
         <hr class="hr-large">
 
@@ -30,6 +30,13 @@
                     <textarea rows="3" class="span12" id="long_url"placeholder="ex: www.att.com/myurl" ng-model="url.longurl"></textarea>
                     <button type="button" class="reset-field hide-text">Reset field</button>
                 </span>
+
+                <label for="expired_url">I can help you with that text.</label>
+                <span class="field-group block">
+                    <textarea rows="3" class="span12" id="description" placeholder="Tell you're user how this link helps them." ng-model="url.description" ></textarea>
+                    <button type="button" class="reset-field hide-text">Reset field</button>
+                </span>
+
                 <label for="expired_url">If Expired URL</label>
                 <span class="field-group block">
                     <textarea rows="3" class="span12" id="expired_url" placeholder="ex: www.att.com/myurl" ng-model="url.expiredurl" ></textarea>
@@ -44,9 +51,13 @@
                         </span>
                     </p>
                 </div>
-                <div class="row-fluid-nowrap content-pad">
-                    <div class="span12">
-                        <button class="btn btn-large btn-large btn-block" type="button" ng-click="getURL()">http://att.com/r/{{shorturl}}</button>
+                <div class="row-fluid-nowrap content-pad span12">
+                    
+                    <div class="row-fluid-nowrap span6">
+                        <button class="btn btn-large btn-large btn-block" type="button" ng-click="getURL()">Preview: http://att.com/r/{{shorturl}}</button>
+                    </div>
+                    <div class="row-fluid-nowrap span6">
+                        <button class="btn btn-large btn-large btn-block" type="button" ng-click="$location.url('home')">Go Back</button>
                     </div>
                 </div>
             </form>

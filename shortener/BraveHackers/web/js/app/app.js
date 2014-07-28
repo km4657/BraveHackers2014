@@ -12,7 +12,7 @@ angular.module('myApp', [
   'myApp.controllers'
 ]).
 config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/home/:id', {templateUrl: 'partials/home.html', controller: 'HomeCtrl', resolve:{
+  $routeProvider.when('/home', {templateUrl: 'partials/home.html', controller: 'HomeCtrl', resolve:{
     URLs:function(MyURLs, $route){return MyURLs.myURLs.get({id:$route.current.params.id});}
   }});
   $routeProvider.when('/create', {templateUrl: 'partials/create.html', controller: 'CreateCtrl'});
@@ -22,5 +22,5 @@ config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/report/:id', {templateUrl: 'partials/report.html', controller: 'ReportCtrl', resolve:{
     clicks:function(MyURLs, $route){return MyURLs.getClicks.get({id:$route.current.params.id});}
   }});
-  $routeProvider.otherwise({redirectTo: '/home/weolopez%40yahoo.com'});
+  $routeProvider.otherwise({redirectTo: '/home'});
 }]);

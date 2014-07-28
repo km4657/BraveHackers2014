@@ -101,6 +101,7 @@ public class UrlListFacadeREST extends AbstractFacade<UrlList> {
     @Produces({"application/xml", "application/json"})
     public List<UrlList> findAll(@Context HttpServletRequest httpRequest) {
         String email = httpRequest.getUserPrincipal().getName();
+        if (email==null) email = "weolopez@yahoo.com";
         TypedQuery<UrlList> q = getEntityManager().createNamedQuery("UrlList.findByEmail", UrlList.class);
         q.setParameter("email", email);
         return q.getResultList();
