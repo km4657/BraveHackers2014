@@ -15,9 +15,8 @@ angular.module('myApp.directives', [])
                     domain: 'tdata-offers.att.net',
                     consumptionEngine: 'ATTNET',
                     pageID: '1',
-                    userID: email;
-                }
-                );
+                    userID: email
+                });
             };
         })
         ;
