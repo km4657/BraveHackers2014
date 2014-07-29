@@ -46,7 +46,7 @@ public class Clicks implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "ID_PK")
-    @SequenceGenerator(name="CLICKS_GENERATOR", sequenceName="CLICKS_SEQ")
+    @SequenceGenerator(name="CLICKS_GENERATOR", sequenceName="CLICKS_SEQ",allocationSize=1)
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="CLICKS_GENERATOR")
     private BigDecimal idPk;
     @Basic(optional = false)
