@@ -25,6 +25,7 @@
                 
                 <ul>
                  <li ng-click="url='gacdtl03ml5174.itservices.sbc.com:8080'">Click to use Weo's: gacdtl03ml5174.itservices.sbc.com:8080</li>
+                 <li ng-click="url='gacdt201km4657.itservices.sbc.com:8080'">Click to use Kelley's: gacdt201km4657.itservices.sbc.com:8080</li>
                 </ul>
                 
                 <hr>

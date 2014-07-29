@@ -17,14 +17,7 @@ angular.module('myApp.services', ['ngResource'])
                 }),
                 myURLs: $resource('/webresources/com.att.bravehackers.redirect.urllist', {}, {
                     get: {method: "GET", isArray: true}
-                }),
-                postGetURL: $resource('/webresources/com.att.bravehackers.redirect.urllist',  {} , {
-                        post: {
-                            headers: {
-                                'Content-Type':'application/json'
-                            }                           
-                        }
-                    })
+                })
             }
         })
         .factory('PostGetURL', function($resource) {

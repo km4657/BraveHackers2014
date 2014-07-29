@@ -40,11 +40,14 @@ public class UrlListFacadeREST extends AbstractFacade<UrlList> {
         super(UrlList.class);
     }
     
-    @Override
+   
     @POST
     @Consumes("application/json")
     @Produces("application/json")
-    public UrlList create(UrlList entity) {
+    public UrlList create(UrlList entity, @Context HttpServletRequest httpRequest) {
+        String email = httpRequest.getUserPrincipal().getName();
+        if (email==null) email = "kelleym@me.com";
+        entity.setEmail(email);
         super.create(entity);
         
         String vanityurl = entity.getVanityurl();
