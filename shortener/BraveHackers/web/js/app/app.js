@@ -22,5 +22,6 @@ config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/report/:id', {templateUrl: 'partials/report.html', controller: 'ReportCtrl', resolve:{
     clicks:function(MyURLs, $route){return MyURLs.getClicks.get({id:$route.current.params.id});}
   }});
+  $routeProvider.when('/recommend', {templateUrl: 'partials/recommend.html', controller: 'RecommendCtrl'});
   $routeProvider.otherwise({redirectTo: '/home'});
 }]);

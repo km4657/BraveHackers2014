@@ -47,4 +47,12 @@ angular.module('myApp.controllers', ['ngResource'])
             $scope.goToHistory = function() {
                     $location.url('history/'+$scope.clicks[0].idFkUrlList);
             }
-        });
+        })
+        .controller('RecommendCtrl', function($scope, $location) {
+            $scope.getRecommmendation = function() {
+                $resource('https://tdata-offers.att.net/nt/TDiceRecommendations/1/2/recommendations/http/ATTNET/PG1?deviceType=1&userId=anonymous&userIdType=Email&callback=jQuery172038612295126254914_1406592774557&_=1406592778266', {idFk:'@id'}, {
+                    get: {method: "GET", isArray: true}
+                })
+            }
+        })
+        ;

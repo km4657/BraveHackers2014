@@ -54,7 +54,9 @@ public class Redirect extends HttpServlet {
         if (shorturl == null) {
             shorturl = request.getRequestURI();
         }
-        //shorturl = shorturl.substring(shorturl.lastIndexOf("/") + 1);
+        
+        if (shorturl == null) shorturl = shorturl.substring(shorturl.lastIndexOf("/") + 1);
+        
         System.out.println("SHORTURL:" + shorturl);
 
         try {
