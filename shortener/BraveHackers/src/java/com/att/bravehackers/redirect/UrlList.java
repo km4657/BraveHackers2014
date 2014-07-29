@@ -172,7 +172,7 @@ public class UrlList implements Serializable {
     }
 
     public void setDescription(String description) {
-        this.urlName = description;
+        this.description = description;
     }
     
     @Override
