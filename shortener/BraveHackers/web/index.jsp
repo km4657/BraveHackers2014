@@ -34,7 +34,7 @@
                 <a href="http://{{url}}/faces/index.jsp">http://{{url}}/faces/index.jsp</a>
                 <br>
                 <label>Mobile App:</label>
-                <a href="http://{{url}}/index.html">http://{{url}}/index.html</a>
+                <a href="http://{{url}}/index.html">http://{{url}}/faces/index.html</a>
                 <br>
                 <label>REST Test:</label>
                 <a href="http://{{url}}/faces/shortener/testREST.jsp">http://{{url}}/faces/shortener/testREST.jsp</a>

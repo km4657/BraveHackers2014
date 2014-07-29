@@ -31,6 +31,14 @@
 
 .container {max-width: 900px;}
 .page-header h1 {text-align: center;}
+.aside {
+    float: right;
+    width: 4em;
+    margin-right: 2em;
+    vertical-align: middle;
+    font-size: 0.8em;
+}
+.section-heading {padding-right: 2em;}
 @media only screen and (min-width: 900px)  {
 	div[data-role="page"] {position: relative;}
 }

@@ -1,18 +1,15 @@
 <section class="row main-content">
     <div class="span12">
         <div class="page-header">
-            <h1>I can help you with that...</h1>
+            <h1>URL Shortener</h1>
         </div>
         <hr class="hr-large">
 
-        <div class="row-fluid-nowrap content-pad span12">
-            <div class="span6">
-                <a href="#/recommend"><button ng-click="" class="btn btn-large btn-large btn-block" type="button">Get Recommendation</button></a>
-            </div>
-
-            <div class="span6">
+        <div class="row-fluid-nowrap content-pad">
+            <div class="span12">
                 <a href="#/create"><button ng-click="" class="btn btn-large btn-large btn-block" type="button">Create URL</button></a>
             </div>
+
         </div>
         <hr class="hr-large">
         <div class="row-fluid" id="link-list"> 
@@ -24,29 +21,27 @@
             <hr class="hr-large">
 
             <ul class="list">
-                <li class="section-heading" ng-repeat="c in categories" style="padding-right: 30px;">
-                    <div class="row" style="background-color: white;">
-                        <h1 class="span6" style="float: left;width: 45%;margin-left: 10px;margin-top: 10px">
-                            {{c}}
-                        </h1>
-                        <h4 class="span6" style="float: right;width: 75px;text-align: right;margin-right: 20px;margin-top: 15px">
-                            Total: {{totals.length}}
-                        </h4> 
-                    </div>
-                    <ul class="list">
-                        <li ng-repeat="u in totals = (urls| filter:{category:c})"><a href="#/report/{{u.idPk}}" class="shorturl" >{{u.urlName}}</a></li>
-                    </ul>
-                </li>
-
+                <li class="section-heading" ng-repeat-start="c in categories" >
+                        {{c}}
+                        <span class="aside">
+                            Total: <strong>{{totals.length}}</strong>
+                        </span> 
+                    
+                </li>              
+                <li ng-repeat="u in totals = (urls| filter:{category:c})" ng-repeat-end><a href="#/report/{{u.idPk}}" class="shorturl" >{{u.urlName}}</a></li>
             </ul>
 
 
         </div>
         <script type="text/javascript">
+
+
                     var options = {
                         valueNames: ['shorturl']
                     };
+
                     var shorturlList = new List('link-list', options);
+
         </script>
     </div>
 </section>
