@@ -50,7 +50,7 @@ angular.module('myApp.controllers', ['ngResource'])
             }
         })
         .controller('RecommendCtrl', function($scope, $location) {
-                $scope.email='weolopez@yahoo.com';
+                $scope.email='';
                 $scope.getRecommmendation = function() {
                     $scope.user = $scope.email;
                 }
