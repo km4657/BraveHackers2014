@@ -8,7 +8,7 @@ angular.module('myApp.controllers', ['ngResource'])
             $scope.urls = URLs;
         })
         .controller('CreateCtrl', function($scope, $location, PostGetURL) {
-            $scope.url = {"category": "", "email": "", "expiredurl": "", "longurl": "", "urlName": "", "vanityurl": ""};
+            $scope.url = {"category": "", "email": "", "expiredurl": "", "longurl": "", "urlName": "", "vanityurl": "","description": "", "expireDate": ""};
             $scope.categories = ['Uverse', 'Wireless', 'DigitalLife', 'Business', ''];
             $scope.shorturl = 'Get URL';
             var created = false;

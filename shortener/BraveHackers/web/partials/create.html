@@ -31,9 +31,9 @@
                     <button type="button" class="reset-field hide-text">Reset field</button>
                 </span>
 
-                <label for="expired_url">I can help you with that text.</label>
+                <label for="description">I can help you with that text.</label>
                 <span class="field-group block">
-                    <textarea rows="3" class="span12" id="description" placeholder="Tell you're user how this link helps them." ng-model="url.description" ></textarea>
+                    <textarea rows="3" class="span12" id="description" placeholder="Tell your user how this link helps them." ng-model="url.description" ></textarea>
                     <button type="button" class="reset-field hide-text">Reset field</button>
                 </span>
 
@@ -45,7 +45,7 @@
                 <label for="exp_date">Expiration Date</label>
                 <div class="col-md-6">
                     <p class="input-group">
-                        <input type="text" class="form-control" placeholder="dd-MM-yyyy" datepicker-popup="dd-MM-yyyy" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                        <input type="text" class="form-control" placeholder="dd-MM-yyyy" datepicker-popup="dd-MM-yyyy" ng-model="url.expireDate" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
                         <span class="input-group-btn">
                             <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
                         </span>
