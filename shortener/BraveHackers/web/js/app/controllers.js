@@ -4,7 +4,7 @@
 
 angular.module('myApp.controllers', ['ngResource'])
         .controller('HomeCtrl', function($scope, URLs) {
-            $scope.categories = ['Uverse', 'Wireless', 'DigitalLife', 'Business', ''];
+            $scope.categories = ['Uverse', 'Wireless', 'DigitalLife', 'Business', 'Other'];
             $scope.urls = URLs;
         })
         .controller('CreateCtrl', function($scope, $location, PostGetURL) {
