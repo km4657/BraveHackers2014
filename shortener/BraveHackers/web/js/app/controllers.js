@@ -8,7 +8,7 @@ angular.module('myApp.controllers', ['ngResource'])
             $scope.urls = URLs;
         })
         .controller('CreateCtrl', function($scope, $location, PostGetURL) {
-            $scope.url = {"category": "", "email": "", "expiredurl": "", "longurl": "", "urlName": "", "vanityurl": "","description": "", "expireDate": ""};
+            $scope.url = {"category": "", "email": "", "expiredurl": "", "longurl": "", "urlName": "", "vanityurl": "", "description": "", "expireDate": ""};
             $scope.categories = ['Uverse', 'Wireless', 'DigitalLife', 'Business', ''];
             $scope.shorturl = 'Get URL';
             var created = false;
@@ -39,18 +39,20 @@ angular.module('myApp.controllers', ['ngResource'])
         .controller('HistoryCtrl', function($scope, $location, URL) {
             $scope.url = URL;
             $scope.goToReport = function() {
-                    $location.url('report/'+$scope.url.idPk);
+                $location.url('report/' + $scope.url.idPk);
             }
         })
         .controller('ReportCtrl', function($scope, $location, clicks) {
-            $scope.clicks = clicks;;
+            $scope.clicks = clicks;
+            ;
             $scope.goToHistory = function() {
-                    $location.url('history/'+$scope.clicks[0].idFkUrlList);
+                $location.url('history/' + $scope.clicks[0].idFkUrlList);
             }
         })
         .controller('RecommendCtrl', function($scope, $location) {
-            $scope.getRecommmendation = function() {
-                $scope.user = $scope.email;
-            }
+                $scope.email='weolopez@yahoo.com';
+                $scope.getRecommmendation = function() {
+                    $scope.user = $scope.email;
+                }
         })
         ;

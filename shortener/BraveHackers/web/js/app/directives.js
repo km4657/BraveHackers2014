@@ -12,17 +12,17 @@ angular.module('myApp.directives', [])
         .directive('tdata', function(version) {
             return {
                 restrict: 'E',
-                scope: {
-                    user: '@'
-                },
                 link: function(scope, element, attrs, Entity) {
-                    $().getRecommendations({
-                        domain: 'tdata-offers.att.net',
-                        consumptionEngine: 'ATTNET',
-                        pageID: '1',
-                        userID: scope.user
+                    scope.$watch('user', function(newValue, oldValue) {
+                        console.log('newvalue:' + newValue);
+                        $().getRecommendations({
+                            domain: 'tdata-offers.att.net',
+                            consumptionEngine: 'ATTNET',
+                            pageID: '1',
+                            userID: scope.user
+                            
+                        });
                     });
                 }
-               
             }
         });
