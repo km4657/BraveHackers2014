@@ -12,6 +12,9 @@ angular.module('myApp.services', ['ngResource'])
                 getClicks: $resource('/webresources/com.att.bravehackers.redirect.clicks/query?idFk=:id', {idFk:'@id'}, {
                     get: {method: "GET", isArray: true}
                 }),
+                getDomains: $resource('/webresources/com.att.bravehackers.redirect.clicks/domainInfo?idFk=:id', {idFk:'@id'}, {
+                    get: {method: "GET", isArray: true}
+                }),
                 selectedURL: $resource('/webresources/com.att.bravehackers.redirect.urllist/:id', {id:'@id'}, {
                     get: {method: "GET", isArray: false}
                 }),
