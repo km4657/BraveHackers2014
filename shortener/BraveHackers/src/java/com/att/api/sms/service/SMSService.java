@@ -102,7 +102,7 @@ public class SMSService extends APIService {
      * @throws RESTException if API request was not successful
      * @throws JSONException 
      */
-    public SMSStatus getSMSDeliveryStatus(String msgId) throws RESTException, JSONException {
+    public SMSStatus getSMSDeliveryStatus(String msgId) throws Exception {
         String endpoint = getFQDN() + "/sms/v3/messaging/outbox/" + msgId;
 
         final String responseBody = new RESTClient(endpoint)
@@ -123,7 +123,7 @@ public class SMSService extends APIService {
      * @throws RESTException if API request was not successful
      * @throws JSONException 
      */
-    public SMSGetResponse getSMS(String registrationID) throws RESTException, JSONException {
+    public SMSGetResponse getSMS(String registrationID) throws Exception {
 
         String fqdn = getFQDN();
         String endpoint = fqdn + "/sms/v3/messaging/inbox/" + registrationID;

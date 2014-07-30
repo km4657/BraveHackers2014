@@ -52,7 +52,7 @@ public final class SMSStatus {
         return list;
     }
 
-    public static SMSStatus valueOf(JSONObject jobj) throws JSONException {
+    public static SMSStatus valueOf(JSONObject jobj) throws Exception {
         JSONObject deliveryInfoList = jobj.getJSONObject("DeliveryInfoList");
 
         final String resourceUrl = deliveryInfoList.getString("ResourceUrl");
