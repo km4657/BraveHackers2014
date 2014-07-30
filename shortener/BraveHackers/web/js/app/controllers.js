@@ -7,10 +7,11 @@ angular.module('myApp.controllers', ['ngResource'])
             $scope.categories = ['Uverse', 'Wireless', 'DigitalLife', 'Business', 'Other'];
             $scope.urls = URLs;
         })
-        .controller('CreateCtrl', function($scope, $location, PostGetURL) {
+        .controller('CreateCtrl', function($scope, $location, PostGetURL, PostSendSms) {
             $scope.url = {"category": "", "email": "", "expiredurl": "", "longurl": "", "urlName": "", "vanityurl": "", "description": "", "expireDate": ""};
             $scope.categories = ['Uverse', 'Wireless', 'DigitalLife', 'Business', ''];
             $scope.shorturl = 'Get URL';
+            $scope.sms = {"tn": "4044080667", "message": "TESTING"};
             var created = false;
 
             $scope.getURL = function() {
@@ -23,6 +24,11 @@ angular.module('myApp.controllers', ['ngResource'])
                     $scope.shorturl = t.shorturl;
                     created = true;
                 });
+            }
+            $scope.sendSms = function() {
+                var postSendSms = new PostSendSms()
+                angular.copy($scope.sms, postSendSms);
+                postSendSms.$save();
             }
             $scope.open = function($event) {
                 $event.preventDefault();

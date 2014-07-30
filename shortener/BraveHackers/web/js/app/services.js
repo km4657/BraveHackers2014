@@ -32,4 +32,14 @@ angular.module('myApp.services', ['ngResource'])
                         }
                     })
             }
+        )
+        .factory('PostSendSms', function($resource) {
+            return $resource('/webresources/com.att.bravehackers.sms.sms',{} , {
+                        post: {
+                            headers: {
+                                'Content-Type':'application/json'
+                            }                           
+                        }
+                    })
+            }
         );

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package com.att.bravehackers.sms.service;
+package com.att.bravehackers.sms;
 
 import com.att.api.oauth.OAuthService;
 import com.att.api.oauth.OAuthToken;
@@ -18,7 +18,7 @@ import com.att.api.sms.service.SMSService;
  */
 public class SmsService {
     
-    public static void sendSms(JsonSms sms){
+    public static void sendSms(String tn, String message){
         System.out.println("Entering sendSms!!!");
     try
     {
@@ -53,8 +53,8 @@ public class SmsService {
         try {
             /* This portion showcases the Send SMS API call. */
             // Enter Phone Number; e.g. final String pn = "5555555555";
-            final String pn = sms.getPn();
-            final String msg = sms.getMessage();
+            final String pn = tn;
+            final String msg = message;
             final boolean notifyDeliveryStatus = false;
             // Send request for sending SMS
             SMSSendResponse r = smsSrvc.sendSMS(pn, msg, notifyDeliveryStatus);

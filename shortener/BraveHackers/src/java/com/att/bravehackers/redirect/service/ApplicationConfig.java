@@ -33,6 +33,7 @@ public class ApplicationConfig extends Application {
         resources.add(com.att.bravehackers.cors.CrossOriginResourceSharingFilter.class);
         resources.add(com.att.bravehackers.redirect.service.ClicksFacadeREST.class);
         resources.add(com.att.bravehackers.redirect.service.UrlListFacadeREST.class);
+        resources.add(com.att.bravehackers.sms.service.SmsFacadeREST.class);
     }
     
 }
