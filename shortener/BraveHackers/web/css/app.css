@@ -1,8 +1,27 @@
 /* app css stylesheet */
 
+.row {
+    margin: 0;
+}
+.navbar{
+    min-height: 0px;
+    border: 0;       
+}
+.page-header {
+    width: 100%;
+}
+.pull-left {
+    width: 70px;
+    vertical-align: middle;
+    position: absolute;
+    top: 17px;
+}
+.pull-left i {
+    margin-right: 10px;
+}
+
 .menu {
   list-style: none;
-  border-bottom: 0.1em solid black;
   margin-bottom: 2em;
   padding: 0 0 0.5em;
 }

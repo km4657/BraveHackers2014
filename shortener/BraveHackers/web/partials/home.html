@@ -23,13 +23,10 @@
                         {{c}}
                         <span class="aside">
                             Total: <strong>{{totals.length}}</strong>
-                        </span> 
-                    
+                        </span>                     
                 </li>              
                 <li ng-repeat="u in totals = (urls| filter:{category:c}) | filter:query" ng-repeat-end><a href="#/report/{{u.idPk}}" class="shorturl" >{{u.urlName}}</a></li>
             </ul>
-
-
         </div>
         
     </div>
