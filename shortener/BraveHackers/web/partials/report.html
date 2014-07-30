@@ -33,9 +33,9 @@
                     </tr>
                 </thead>
                 <tbody class="list">
-                    <tr ng-repeat="c in clicks| unique:'sourceDomain'">
-                        <td class="shorturl">{{c.sourceDomain}}</td>
-                        <td>{{c.sourceDomain.length}}</td>
+                    <tr ng-repeat="d in domains">
+                        <td class="shorturl">{{d.domain}}</td>
+                        <td>{{d.totalClicks}}</td>
                     </tr>
                 </tbody>
             </table>

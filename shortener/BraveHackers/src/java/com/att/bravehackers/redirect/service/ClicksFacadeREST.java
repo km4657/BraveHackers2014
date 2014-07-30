@@ -8,12 +8,14 @@ package com.att.bravehackers.redirect.service;
 
 import com.att.bravehackers.redirect.Clicks;
 import com.att.bravehackers.redirect.ClicksInfo;
+import com.att.bravehackers.redirect.DomainInfo;
 import com.att.bravehackers.redirect.UrlList;
 import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.naming.Context;
@@ -85,53 +87,25 @@ public class ClicksFacadeREST extends AbstractFacade<Clicks> {
     }
 
     @GET
-    @Path("clicksInfo") 
+    @Path("domainInfo") 
     @Produces({"application/xml", "application/json"})
-    public ClicksInfo clicksInfo(@QueryParam("urlId") String urlIdIn) {
-        ClicksInfo info = new ClicksInfo();
+    public DomainInfo[] domainInfo(@QueryParam("idFk") int idFk) {
+        List<DomainInfo> infos = new ArrayList<DomainInfo>();
         Connection conn = null;
         try {
             Context ctx = new InitialContext();
             DataSource ds = (DataSource) ctx.lookup("bravehackers");
             conn = ds.getConnection();
-            int urlId = Integer.parseInt(urlIdIn);
 
             // get url info
-            PreparedStatement ps = conn.prepareStatement("select id_pk,longurl,shorturl,category,url_name "
-                    + "from url_list "
-                    + "where id_pk=?");
-            ps.setInt(1, urlId);
+            PreparedStatement ps = conn.prepareStatement("select source_domain,count(*) from clicks where id_fk_url_list=? group by source_domain");
+            ps.setInt(1, idFk);
             ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                info.id = rs.getInt(1);
-                info.longUrl = rs.getString(2);
-                info.shortUrl = rs.getString(3);
-                info.category = rs.getString(4);
-                info.name = rs.getString(5);
-            }
-
-            // get total clicks
-            ps = conn.prepareStatement("select count(*) from clicks where id_fk_url_list=?");
-            ps.setInt(1, urlId);
-            rs = ps.executeQuery();
-            if (rs.next()) {
-                info.totalClicks = rs.getInt(1);
-            }
-
-            // get clicks this week
-            ps = conn.prepareStatement("select count(*) from clicks where id_fk_url_list=? and click_date>sysdate-7");
-            ps.setInt(1, urlId);
-            rs = ps.executeQuery();
-            if (rs.next()) {
-                info.clicksThisWeek = rs.getInt(1);
-            }
-
-            // get domain clicks
-            ps = conn.prepareStatement("select source_domain,count(*) from clicks where id_fk_url_list=? group by source_domain");
-            ps.setInt(1, urlId);
-            rs = ps.executeQuery();
             while (rs.next()) {
-                info.addDomainInfo(rs.getString(1), rs.getInt(2));
+                DomainInfo info = new DomainInfo();
+                info.domain = rs.getString(1);
+                info.totalClicks = rs.getInt(2);
+                infos.add(info);
             }
         } catch (NamingException e) {
             // TODO Auto-generated catch block
@@ -147,7 +121,7 @@ public class ClicksFacadeREST extends AbstractFacade<Clicks> {
                 }
             }
         }
-        return info;
+        return infos.toArray(new DomainInfo[infos.size()]);
     }
 
     @GET
