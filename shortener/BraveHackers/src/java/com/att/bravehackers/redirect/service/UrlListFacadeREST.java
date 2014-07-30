@@ -41,6 +41,13 @@ public class UrlListFacadeREST extends AbstractFacade<UrlList> {
     }
     
    
+    /*@POST
+    @Path("sendsms")
+    @Consumes("application/json")
+    public void sendSms(JsonSms sms) {
+        SmsService.sendSms(sms);
+    }*/
+    
     @POST
     @Consumes("application/json")
     @Produces("application/json")
