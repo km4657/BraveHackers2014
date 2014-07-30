@@ -12,12 +12,26 @@
 }
 .pull-left {
     width: 70px;
-    vertical-align: middle;
     position: absolute;
     top: 17px;
 }
 .pull-left i {
     margin-right: 10px;
+}
+.pull-right {
+    width: 70px;
+    position: absolute;
+    top: 17px;
+    right: 0;
+}
+.pull-right i {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.page-header .pull-right p {
+    top:0;
+    font-size: inherit;
+    line-height: inherit;
 }
 
 .menu {
