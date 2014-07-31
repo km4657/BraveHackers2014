@@ -44,6 +44,11 @@
                 <br>
                 <label>Edit Presentation</label>/presentation/Mobilithon_Final_Presentation_Bravehackers.pptx
 
+                
+                TODO LIST:
+                <ul>
+                    <li>Remove CRUD Completely.</li>
+                </ul>
             </div>
 
         </body>
