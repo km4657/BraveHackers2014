@@ -78,7 +78,7 @@ public class Redirect extends HttpServlet {
             clicks.setClickDate(Calendar.getInstance().getTime());
             clicks.setEmail("getUserFromCookie");
             clicks.setIdFkUrlList(urlList.getIdPk());
-            clicks.setSourceDomain(request.getRemoteHost());
+            clicks.setSourceDomain(request.getHeader("referer"));
             clicksFacade.create(clicks);
         } catch (Exception e) {
             System.out.println("EXCEPTION in Clicks:" + e.getMessage());

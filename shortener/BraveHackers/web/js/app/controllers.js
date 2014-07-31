@@ -46,7 +46,7 @@ angular.module('myApp.controllers', ['ngResource'])
             };
             $scope.toggleMin();
         })
-        .controller('Detao;sCtrl', function($scope, $location, URL) {
+        .controller('DetailsCtrl', function($scope, $location, URL) {
             $scope.url = URL;
             $scope.goToReport = function() {
                 $location.url('report/' + $scope.url.idPk);
