@@ -16,7 +16,7 @@ config(['$routeProvider', function($routeProvider) {
     URLs:function(MyURLs, $route){return MyURLs.myURLs.get({id:$route.current.params.id});}
   }});
   $routeProvider.when('/create', {templateUrl: 'partials/create.html', controller: 'CreateCtrl'});
-  $routeProvider.when('/history/:id', {templateUrl: 'partials/history.html', controller: 'HistoryCtrl', resolve:{
+  $routeProvider.when('/details/:id', {templateUrl: 'partials/details.html', controller: 'DetailsCtrl', resolve:{
     URL:function(MyURLs, $route){return MyURLs.selectedURL.get({id:$route.current.params.id});}
   }});
   $routeProvider.when('/report/:id', {templateUrl: 'partials/report.html', controller: 'ReportCtrl', resolve:{
