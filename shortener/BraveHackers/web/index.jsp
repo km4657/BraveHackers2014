@@ -42,8 +42,8 @@
                 <label>Edit Presentation</label>/presentation/Mobilithon_Final_Presentation_Bravehackers.pptx
                 <br>
                 <label>See Latest Commits</label><a href="https://codecloud.web.att.com/projects/ST_MCOEMT/repos/team04/commits">CodeCloud</a>
-
-                
+                <hr>
+                <br>
                 TODO LIST:
                 <ul>
                     <li>Remove CRUD Completely.</li>
