@@ -1,0 +1,8 @@
+<section>
+            <h1>I can help you with that.</h1>
+
+            <h3><%=((UrlList)request.getAttribute("URL")).getDescription()%></h3>
+            <form action="<%=((UrlList)request.getAttribute("URL")).getLongurl()%>">
+                <input type="submit" value="Next >">
+            </form>
+</section>

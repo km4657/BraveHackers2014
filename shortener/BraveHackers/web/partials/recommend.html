@@ -1,49 +1,38 @@
 <section class="row main-content">
     <div class="span12">
-        <div class="page-header">
-            <div class="pull-left">
-                <a href="#">
-                    <p><i class="cssIcon-chevron-r-b"></i>Back</p>
-                </a>
-            </div>
-            <h1>Refer</h1>
+        <div class="page-header">            
+            <a href="#">
+                <i class="cssIcon-chevron-r-b">Back</i>
+            </a>
+            <h1 class="span10">P2R T.Data Recommendation</h1>
         </div>
         <hr class="hr-large">
-
-        
-            <form>
-                <div class="row-fluid-nowrap content-pad">
-                    <label for="customer_email">Customer Email Address</label>  
-                    <div class="field-group">
-                        <input type="text" id="customer_email" placeholder="ex: weolopez@bellsouth.net" class="span12" ng-model="email"/>
-                        <button type="button" class="reset-field hide-text">Reset field</button>
-                    </div>
+        <form>
+            <div class="row-fluid-nowrap content-pad span12">
+                <label for="customer_email">Customer Cell Phone Number</label>  
+                <div class="field-group span10">
+                    <input type="text" id="customer_email" placeholder="ex: 4045551234" class="span12" ng-model="email"/>
+                    <button type="button" class="reset-field hide-text span2">Reset field</button>         
                 </div>
-                <div class="row-fluid-nowrap">
-                    <tdata class="row-fluid-nowrap content-pad span12" >
-                        <div style="min-height: 225px; visibility: visible;" data-tdata-replace="tdataAnimate" data-tdata="IS8" id="IS8" class="grid_12 tdata" data-contentid="524f0d8bc40c120970a60b47" data-userid="anonymous" data-inventoryid="IS8" data-accountnumber="null" data-accounttype="undefined" data-useridtype="Email">
+                <button class="btn btn-small vcenter span2" type="button" ng-click="getRecommmendation()">Go</button>           
+            </div>
 
-                            <div class="invSpace wide-layout adOn" style="display: block; visibility: visible;">
-                                <a title="AT&amp;T Unlimited MicroCell Calling" class="imgWrap" href="http://www.att.com/shop/wireless/services/att-unlimited-microcell-calling-sku3890254.html?source=InTd000000000000L&amp;wtExtndSource=sku3890254" target="_blank" style="margin-top: 10px; width: 160px;">
-                                    <img data-height="160" data-width="160" alt="AT&amp;T Unlimited MicroCell Calling" src="http://icds.portal.att.net/tdata/attdotcom/AT&amp;T-Unlimited-MicroCell-Calling-160x160.jpg" style="height: 160px;">
-                                </a>
-                                <div class="content">
-                                    <h1 style="margin: 0px; font-size: 125%; line-height: 1.25;"><a data-tdata-original-name="AT&amp;T Unlimited MicroCell Calling" href="http://www.att.com/shop/wireless/services/att-unlimited-microcell-calling-sku3890254.html?source=InTd000000000000L&amp;wtExtndSource=sku3890254" target="_blank">AT&amp;T Unlimited MicroCell Calling</a><a class="tdata-expand" href="#">+</a></h1>
-                                    <p data-tdata-text="Unlimited minutes. One low price! With the AT&amp;T Unlimited MicroCell Calling feature on your individual plan, you enjoy unlimited anytime calling from 3G MicroCell to anyone in the U.S. Now you can have peace of mind with a predictable bill each month." style="font-size: 85%;">Unlimited minutes. One low price! With the AT&amp;T Unlimited MicroCell Calling feature on your individual plan, you enjoy unlimited anytime calling from 3G MicroCell to anyone in the...</p> <a href="http://www.att.com/shop/wireless/services/att-unlimited-microcell-calling-sku3890254.html?source=InTd000000000000L&amp;wtExtndSource=sku3890254" target="_blank"><span style="font-size: 75%;">Learn More</span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </tdata>
-                </div>
-                <div class="row-fluid-nowrap content-pad span12">
-                    <div class="row-fluid-nowrap span12">
-                        <button class="btn btn-large btn-large btn-block" type="button" ng-click="getRecommmendation()">Get Recommendation</button>
-                    </div>
-                </div>
-            </form>
-        
-
-        
-
+            
+            <div class="row-fluid-nowrap">
+                <tdata class="row-fluid-nowrap content-pad span12" >
+                    <div id="IS5" data-tdata="IS8" data-tdata-replace="tdataAnimate" class="tdata" style="visibility: visible;" data-contentid="524f0d8bc40c120970a60b43" data-userid="anonymous" data-inventoryid="IS5" data-accountnumber="null" data-accounttype="undefined" data-useridtype="Email">
+                        <div class="adOn" style="display: block; visibility: visible;"><p>
+                                <a data-tdata url="IS5" target="_blank" title="AT&amp;T Rest of World Travel Minutes 100" href="http://www.att.com/shop/wireless/services/rest-of-world-travel-minutes-100-sku6300271.html?source=InTd000000000000L&amp;wtExtndSource=sku6300271" class="imgLink TDataUrl" data-tdata-link="" alt="AT&amp;T Rest of World Travel Minutes 100">
+                                    <img width="100" data-tdatasmallimage="IS5" alt="AT&amp;T Rest of World Travel Minutes 100" src="http://icds.portal.att.net/tdata/attdotcom/AT&amp;T-Rest-of-World-Travel-Minutes-100-160x160.jpg" class="TDataImageS" data-tdata-image="" style="">
+                                </a><br/>
+                                <span data-tdata-name="" class="TDataTextS">AT&amp;T Rest of World Travel Minutes 100</span>
+                            </p>
+                            <p style="margin: 5px;" data-tdata-description></p>
+                            <p><a target="_blank" href="http://www.att.com/shop/wireless/services/rest-of-world-travel-minutes-100-sku6300271.html?source=InTd000000000000L&amp;wtExtndSource=sku6300271" class="TDataUrl" data-tdata-link="" title="AT&amp;T Rest of World Travel Minutes 100" alt="AT&amp;T Rest of World Travel Minutes 100">Learn More &gt;</a></p></div></div>
+                </tdata>
+            </div>
+        </form>
+<a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
     </div>
 </section>

@@ -19,8 +19,8 @@ angular.module('myApp.directives', [])
                             domain: 'tdata-offers.att.net',
                             consumptionEngine: 'ATTNET',
                             pageID: '1',
-                            userID: scope.user
-                            
+                            userID: scope.user,                            
+                            userIDType: 'CTN'
                         });
                     });
                 }
