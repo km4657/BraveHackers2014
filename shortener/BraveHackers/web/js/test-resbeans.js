@@ -71,13 +71,13 @@ function TestSupport() {
     this.projectName = '';
     
     this.expand = new Image();
-    this.expand.src = "expand.gif";
+    this.expand.src = "images/expand.gif";
     this.collapse = new Image();
-    this.collapse.src = "collapse.gif";
+    this.collapse.src = "images/collapse.gif";
     this.og = new Image();
-    this.og.src = "og.gif";
+    this.og.src = "images/og.gif";
     this.cg = new Image();
-    this.cg.src = "cg.gif";
+    this.cg.src = "images/cg.gif";
 
     this.viewIds = [
         { "id" : "table" , "name":"Tabular View", "type":"tableContent"}, 
@@ -1198,8 +1198,8 @@ TestSupport.prototype = {
     },
 
     getItemString : function (name, uri){
-        var itemString = '<img src="cc.gif" border="0">';
-        itemString += '<img src="item.gif" border="0">';
+        var itemString = '<img src="images/cc.gif" border="0">';
+        itemString += '<img src="images/item.gif" border="0">';
         itemString += '<a href="javascript:ts.doShowContent(\''+uri+'\')">';
         itemString += name;
         itemString += '</a><br>';
@@ -1209,7 +1209,7 @@ TestSupport.prototype = {
     toggleCategory : function (img){
         var ImageNode = document.getElementById('I' + img);
         var ImageNode1 = document.getElementById('I1' + img);
-        if(ImageNode1.src.indexOf('cg.gif')>-1) {
+        if(ImageNode1.src.indexOf('images/cg.gif')>-1) {
             ImageNode.src = ts.expand.src;
             ImageNode1.src = ts.og.src;
         } else {
@@ -1820,12 +1820,12 @@ category.prototype = {
     write : function (){
         var categoryString = '<span id="nodeSel' + this.id + '" class="category TreeContent_sun4"';
         if(this.uri != baseURL) {
-            categoryString += '><img src="cg.gif" id="I1' + this.id + '" onClick="ts.wdr.showCategory(\'' + this.id + '\')">';
-            categoryString += '<img src="collapse.gif" id="I' + this.id + '">';
+            categoryString += '><img src="images/cg.gif" id="I1' + this.id + '" onClick="ts.wdr.showCategory(\'' + this.id + '\')">';
+            categoryString += '<img src="images/collapse.gif" id="I' + this.id + '">';
             categoryString += "<div class='item2'><a class=Hyp_sun4 href=javascript:ts.doShowContentForId('"+this.ndx+"') >"+ this.text + "</a></div>";
         } else {
-            categoryString += '><img src="cg.gif" id="I1' + this.id + '" onClick="ts.wdr.updateTree(\'' + this.id + '\')">';
-            categoryString += '<img src="app.gif" id="I' + this.id + '">';
+            categoryString += '><img src="images/cg.gif" id="I1' + this.id + '" onClick="ts.wdr.updateTree(\'' + this.id + '\')">';
+            categoryString += '<img src="images/app.gif" id="I' + this.id + '">';
             categoryString += "<div class='item2'><a class=Hyp_sun4 href=javascript:ts.clearAll() >"+ this.text + "</a></div>";
         }
         categoryString += '</span>';
@@ -1858,9 +1858,9 @@ function item(resource, id, uri, text, ndx){
 
 item.prototype = {
     write : function (){
-        var itemString = '<span class="category TreeContent_sun4"><img src="cc.gif" border="0">';
+        var itemString = '<span class="category TreeContent_sun4"><img src="images/cc.gif" border="0">';
 
-        itemString += '<img src="item.gif" border="0">';
+        itemString += '<img src="images/item.gif" border="0">';
         if(this.uri != null)
             itemString += "<div class=item1><a class=Hyp_sun4 href=javascript:ts.doShowContentForId('"+this.ndx+"') >"+ this.text + "</a></div>";
         else

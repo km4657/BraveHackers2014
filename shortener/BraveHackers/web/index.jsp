@@ -37,7 +37,7 @@
                 <a href="http://{{url}}/faces/index.html">http://{{url}}/faces/index.html</a>
                 <br>
                 <label>REST Test:</label>
-                <a href="http://{{url}}/faces/shortener/testREST.jsp">http://{{url}}/faces/shortener/testREST.jsp</a>
+                <a href="http://{{url}}/test-resbeans.html?domain={{url}}">http://{{url}}/faces/shortener/testREST.jsp</a>
                 <br>
                 <label>Edit Presentation</label>/presentation/Mobilithon_Final_Presentation_Bravehackers.pptx
                 <br>

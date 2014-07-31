@@ -21,16 +21,32 @@
             <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.16/angular.min.js"></script>
         </head>
         <body>
+            <%  
+                String description="Default Description Text.";
+                String link="http://www.att.com";
+                if (request.getAttribute("URL")!=null) {
+                    description =  ((UrlList)request.getAttribute("URL")).getDescription();
+                    link = ((UrlList)request.getAttribute("URL")).getLongurl();
+                }
+            %>
             <h1>I can help you with that.</h1>
 
-            <h3><%=((UrlList)request.getAttribute("URL")).getDescription()%></h3>
-            <form action="<%=((UrlList)request.getAttribute("URL")).getLongurl()%>">
+            <h3><%= description %></h3>
+            <form action="<%= link %>">
                 <input type="submit" value="Next >">
             </form>
-                
-            
-<a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>    
+
+
+            <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a>
+            <script>!function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (!d.getElementById(id)) {
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://platform.twitter.com/widgets.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }
+    }(document, "script", "twitter-wjs");</script>    
         </body>
     </html>
 </f:view>
