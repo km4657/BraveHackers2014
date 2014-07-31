@@ -39,10 +39,9 @@
                 <label>REST Test:</label>
                 <a href="http://{{url}}/faces/shortener/testREST.jsp">http://{{url}}/faces/shortener/testREST.jsp</a>
                 <br>
-                <label>CRUD App:</label>
-                <a href="http://{{url}}/faces/shortener/index.xhtml">http://{{url}}/faces/shortener/index.xhtml</a>
-                <br>
                 <label>Edit Presentation</label>/presentation/Mobilithon_Final_Presentation_Bravehackers.pptx
+                <br>
+                <label>See Latest Commits</label><a href="https://codecloud.web.att.com/projects/ST_MCOEMT/repos/team04/commits">CodeCloud</a>
 
                 
                 TODO LIST:
