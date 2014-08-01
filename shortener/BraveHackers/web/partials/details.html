@@ -2,7 +2,7 @@
     <div class="span12">
         <div class="page-header">            
             <div class="pull-left" style="width: 80px; top: 30px" ng-click="goToReport()">
-                    <p><i class="cssIcon-chevron-r-b" style=" float: left; margin-right: 10px; margin-top: 2px;"></i>Back</p>
+                <p><i class="cssIcon-chevron-r-b" style=" float: left; margin-right: 10px; margin-top: 2px;"></i>Back</p>
             </div>
             <h1>Short URL Details</h1>
             <div class="pull-right" style="width: 125px;top: 30px; margin-top: -29px">
@@ -19,7 +19,7 @@
             <dl>
                 <dt>My Long URL</dt>
                 <dd>{{url.longurl}}</dd>
-                
+
                 <dt>Category</dt>
                 <dd>{{url.category}}</dd>
 
@@ -47,7 +47,8 @@
             </dl>
         </div>
 
-        <hr class="hr-large">
-
+        <div class="row-fluid-nowrap span12">
+            <share class="span4" style=""></share>         
+        </div>
     </div>
 </section>

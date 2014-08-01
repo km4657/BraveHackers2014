@@ -8,33 +8,12 @@ angular.module('myApp.controllers', ['ngResource'])
             $scope.urls = URLs;
         })
         .controller('CreateCtrl', function($scope, $location, PostGetURL, PostSendSms) {
-            $scope.buttonLabel = 'Get URL';
             $scope.categories = ['Uverse', 'Wireless', 'DigitalLife', 'Business', 'Other'];
-            $scope.url = {"category": "", "email": "", "expiredurl": "", "longurl": "", "urlName": "", "vanityurl": "", "description": "", "expireDate": ""};
-            $scope.shorturl = 'Get URL';
-            $scope.sms = {"tn": "4044080667", "message": "TESTING"};
-            var created = false;
-            $scope.getURL = function() {
-                if (!created) {
-                    var postGetURL = new PostGetURL()
-                    angular.copy($scope.url, postGetURL);
-                    postGetURL.$save(function(t) {
-                        $scope.shorturl = t.shorturl;
-                        created = true;
-                        $scope.buttonLabel = 'Preview http://att.com/' + $scope.shorturl;
-                    });
-                } else
-                    $location.url('/r?' + $scope.shorturl);
-            }
+    
             $scope.goHome = function() {
                 $location.url('home')
             };
-
-            $scope.sendSms = function() {
-                var postSendSms = new PostSendSms()
-                angular.copy($scope.sms, postSendSms);
-                postSendSms.$save();
-            }
+            
 
             $scope.open = function($event) {
                 $event.preventDefault();
@@ -47,9 +26,15 @@ angular.module('myApp.controllers', ['ngResource'])
                 $scope.minDate = $scope.minDate ? null : new Date();
             };
             $scope.toggleMin();
+            
+            $scope.url = {"category": "Other", "longurl": $("#link").attr("href"), "urlName": "Recommendation", "description": "This product is tailored to you."};
+            $scope.sms = {"tn": "", "message": "Check this out, I think this is perfect for you."};
+            
         })
         .controller('DetailsCtrl', function($scope, $location, URL) {
-            $scope.url = URL;
+            $scope.sms = {"tn": "", "message": "Check this out, I think this is perfect for you."};
+            $scope.url = URL;           
+            $scope.shorturl=$scope.url.shorturl;
             $scope.goToReport = function() {
                 $location.url('report/' + $scope.url.idPk);
             }

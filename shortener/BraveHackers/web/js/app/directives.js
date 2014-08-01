@@ -43,16 +43,15 @@ angular.module('myApp.directives', [])
 
                     if (scope.sms === undefined)
                         scope.sms = {"tn": "4044080667", "message": "TESTING"};
-
-                    scope.hasShort = false;
-
+                    if (scope.url.shorturl !== undefined)
+                        if (scope.url.shorturl.length === "")
+                            scope.hasShort = false;
+                        else {
+                            scope.shorturl = scope.url.shorturl
+                            scope.hasShort = true;
+                        }
 
                     scope.getURL = function() {
-
-console.log("SMSSENt: scope.shorturl:" + scope.shorturl + " scope.url.longurl:" + scope.url.longurl);
-scope.hasShort = true;
-return;
-
                         if (scope.url.longurl === "")
                             return;
                         if (!scope.hasShort) {
@@ -67,19 +66,21 @@ return;
                         }
                     }
 
+//########## Preview    
+                    scope.preview = function() {
+
+                    }
+
 //########## SMS Integration               
                     scope.isSMS = false;
                     var smsSent = false;
+
                     scope.clickedSMS = function() {
                         scope.isSMS = !scope.isSMS;
-                    };
-
-                    scope.clickedSMS = function(size) {
 
                         var modalInstance = $modal.open({
                             templateUrl: 'partials/sendSMS.html',
                             controller: ModalInstanceCtrl,
-                            size: size,
                             resolve: {
                                 SMS: function() {
                                     return scope.sms;
@@ -88,9 +89,6 @@ return;
                         });
 
                         modalInstance.result.then(function() {
-console.log("SMSSENt: sms.tn:" + scope.sms.tn + " message:" + scope.sms.message);
-return;
-                            
                             if (smsSent)
                                 return;
 

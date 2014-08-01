@@ -81,8 +81,11 @@
 .share-icon{
     width: 75px;
 }
-#sms-button {
+.sms-button {
     right: -10px;
+}
+.preview-button {
+    right: -20px;
 }
 .sms_icon {
     float: left;
