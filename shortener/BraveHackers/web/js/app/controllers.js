@@ -9,12 +9,12 @@ angular.module('myApp.controllers', ['ngResource'])
         })
         .controller('CreateCtrl', function($scope, $location, PostGetURL, PostSendSms) {
             $scope.categories = ['Uverse', 'Wireless', 'DigitalLife', 'Business', 'Other'];
+            $scope.sms = {"tn": "", "message": "Check this out, I think this is perfect for you."};
             $scope.url === undefined
             
             $scope.goHome = function() {
                 $location.url('home')
-            };
-            
+            };            
 
             $scope.open = function($event) {
                 $event.preventDefault();
@@ -28,8 +28,6 @@ angular.module('myApp.controllers', ['ngResource'])
             };
             $scope.toggleMin();
             
-            $scope.url = {"category": "Other", "longurl": $("#link").attr("href"), "urlName": "Recommendation", "description": "This product is tailored to you."};
-            $scope.sms = {"tn": "", "message": "Check this out, I think this is perfect for you."};
             
         })
         .controller('DetailsCtrl', function($scope, $location, URL) {

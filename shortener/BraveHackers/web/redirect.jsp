@@ -115,16 +115,12 @@
                     <div class="span12">
                         <div class="page-header">
                             <div class="pull-left">
-                                <a href="#">
-                                    <p><i class="cssIcon-chevron-r-b"></i></p>
-                                </a>
                             </div>
                             <h1>I can help you with that</h1>
                             
                         </div>
                         <div class="row-fluid-nowrap content-pad">
                                 
-
                                 <h3><%= description %></h3>
                                 <form action="<%= link %>">
                                     <button type="submit" class="btn btn-large btn-large btn-block">
