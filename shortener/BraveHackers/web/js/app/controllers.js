@@ -9,7 +9,8 @@ angular.module('myApp.controllers', ['ngResource'])
         })
         .controller('CreateCtrl', function($scope, $location, PostGetURL, PostSendSms) {
             $scope.categories = ['Uverse', 'Wireless', 'DigitalLife', 'Business', 'Other'];
-    
+            $scope.url === undefined
+            
             $scope.goHome = function() {
                 $location.url('home')
             };
