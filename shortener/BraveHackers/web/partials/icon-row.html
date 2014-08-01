@@ -1,0 +1,16 @@
+<section>
+    <div>
+        <button class="btn btn-primary btn-small" ng-hide="hasShort" ng-click="getURL()"><i class="fa fa-share-alt"></i> Create Short URL</button>
+        <div class="field-group" ng-show="hasShort">
+            <ul class="sharerow" style="width: 100%">
+                <li class="sharerow share-icon">
+                    <a class="twitter-share-button" data-lang="en" href="https://twitter.com/share?text=Check%20this%20out%2C%20I%20think%20this%20is%20perfect%20for%20you&url=http%3A%2F%2Fatt.com%2Fr%3F{{shorturl}}"></a> 
+                </li>
+                <li class="sharerow">
+                    <button id="sms-button" class="btn btn-success btn-small"  ng-click="clickedSMS()"><i class="fa fa-envelope-square"></i> SMS</button>
+                </li>    
+            </ul>
+        </div>
+
+    </div>
+</section>

@@ -262,11 +262,9 @@ function defaultTransition(oldSpace, newSpace) {
             found = true;
         });
         newSpace.find('[data-tdata-description]').each(function() {
-            if (offer.displayDescription.length > 90)
-                $(this).text(offer.displayDescription.substring(0, 88) + '...');
-
-
-            else
+            //if (offer.displayDescription.length > 90)
+              //  $(this).text(offer.displayDescription.substring(0, 88) + '...');
+            //else
                 $(this).text(offer.displayDescription);
 
             found = true;

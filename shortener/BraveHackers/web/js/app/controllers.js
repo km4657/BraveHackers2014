@@ -9,8 +9,8 @@ angular.module('myApp.controllers', ['ngResource'])
         })
         .controller('CreateCtrl', function($scope, $location, PostGetURL, PostSendSms) {
             $scope.buttonLabel = 'Get URL';
-            $scope.url = {"category": "", "email": "", "expiredurl": "", "longurl": "", "urlName": "", "vanityurl": "", "description": "", "expireDate": ""};
             $scope.categories = ['Uverse', 'Wireless', 'DigitalLife', 'Business', 'Other'];
+            $scope.url = {"category": "", "email": "", "expiredurl": "", "longurl": "", "urlName": "", "vanityurl": "", "description": "", "expireDate": ""};
             $scope.shorturl = 'Get URL';
             $scope.sms = {"tn": "4044080667", "message": "TESTING"};
             var created = false;
@@ -18,22 +18,24 @@ angular.module('myApp.controllers', ['ngResource'])
                 if (!created) {
                     var postGetURL = new PostGetURL()
                     angular.copy($scope.url, postGetURL);
-                    postGetURL.$save(function(t) { 
+                    postGetURL.$save(function(t) {
                         $scope.shorturl = t.shorturl;
                         created = true;
-                        $scope.buttonLabel = 'Preview http://att.com/'+$scope.shorturl;
+                        $scope.buttonLabel = 'Preview http://att.com/' + $scope.shorturl;
                     });
-                } else 
-                    $location.url('/r?'+$scope.shorturl);
+                } else
+                    $location.url('/r?' + $scope.shorturl);
             }
-            $scope.goHome = function() {$location.url('home')};
-            
+            $scope.goHome = function() {
+                $location.url('home')
+            };
+
             $scope.sendSms = function() {
                 var postSendSms = new PostSendSms()
                 angular.copy($scope.sms, postSendSms);
                 postSendSms.$save();
             }
-            
+
             $scope.open = function($event) {
                 $event.preventDefault();
                 $event.stopPropagation();
@@ -58,10 +60,21 @@ angular.module('myApp.controllers', ['ngResource'])
                 $location.url('details/' + $route.current.params.id);
             }
         })
-        .controller('RecommendCtrl', function($scope, $location) {
-            $scope.email = '';
+        .controller('RecommendCtrl', function($scope, $location, PostGetURL) {
+            $scope.url = {"category": "Other", "longurl": $("#link").attr("href"), "urlName": "Recommendation", "description": "This product is tailored to you."};
+            $scope.sms = {"tn": "", "message": "Check this out, I think this is perfect for you."};
             $scope.getRecommmendation = function() {
-                $scope.user = $scope.email;
+                $scope.user = $scope.sms.tn;
             }
+            $scope.$watch(function() {
+                return $("#link").attr("href")
+            }, function(newValue, oldValue) {
+                if (newValue == undefined)
+                    return;
+                if (oldValue === newValue)
+                    return;
+                console.log('newvalue:' + newValue);
+            })
+
         })
         ;
