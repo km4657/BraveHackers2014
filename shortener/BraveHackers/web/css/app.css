@@ -35,31 +35,31 @@
 }
 
 .menu {
-  list-style: none;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
+    list-style: none;
+    margin-bottom: 2em;
+    padding: 0 0 0.5em;
 }
 
 .menu:before {
-  content: "[";
+    content: "[";
 }
 
 .menu:after {
-  content: "]";
+    content: "]";
 }
 
 .menu > li {
-  display: inline;
+    display: inline;
 }
 
 .menu > li:before {
-  content: "|";
-  padding-right: 0.3em;
+    content: "|";
+    padding-right: 0.3em;
 }
 
 .menu > li:nth-child(1):before {
-  content: "";
-  padding: 0;
+    content: "";
+    padding: 0;
 }
 
 .container {max-width: 900px;}
@@ -73,5 +73,38 @@
 }
 .section-heading {padding-right: 2em;}
 @media only screen and (min-width: 900px)  {
-	div[data-role="page"] {position: relative;}
+    div[data-role="page"] {position: relative;}
+}
+.sharerow {
+    float: left;
+}
+.share-icon{
+    width: 75px;
+}
+.sms-button {
+    right: -10px;
+}
+.preview-button {
+    right: -20px;
+}
+.sms_icon {
+    float: left;
+    width: 71px;
+    height: 33px;
+    margin: 2px;
+    padding: 2px;
+    background: #b5bdc8; /* Old browsers */
+    background: -moz-linear-gradient(top,  #b5bdc8 0%, #828c95 99%, #28343b 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b5bdc8), color-stop(99%,#828c95), color-stop(100%,#28343b)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #b5bdc8 0%,#828c95 99%,#28343b 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #b5bdc8 0%,#828c95 99%,#28343b 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #b5bdc8 0%,#828c95 99%,#28343b 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #b5bdc8 0%,#828c95 99%,#28343b 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b5bdc8', endColorstr='#28343b',GradientType=0 ); /* IE6-9 */
+
+    border-radius: 2px;
+    // background-image: url("/images/sms.jpg");
+    //background-repeat: no-repeat;
+    //background-size: 64px 44px;
+    //background-position: -5px -9px;
 }
