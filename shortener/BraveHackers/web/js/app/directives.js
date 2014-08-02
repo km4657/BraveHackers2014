@@ -27,7 +27,7 @@ angular.module('myApp.directives', [])
                             userIDType: 'CTN'
                         });
                         scope.created = false;
-                        scope.hasShort = false;
+                        scope.url.shorturl = "";
                     });
                 }
             }
@@ -43,25 +43,17 @@ angular.module('myApp.directives', [])
 
                     if (scope.sms === undefined)
                         scope.sms = {"tn": "4044080667", "message": "TESTING"};
-                    if (scope.url.shorturl !== undefined)
-                        if (scope.url.shorturl.length === "")
-                            scope.hasShort = false;
-                        else {
-                            scope.shorturl = scope.url.shorturl
-                            scope.hasShort = true;
-                        }
 
                     scope.getURL = function() {
                         if (scope.url.longurl === "")
                             return;
-                        if (!scope.hasShort) {
+                        if (scope.url.shorturl === "") {
                             var postGetURL = new PostGetURL();
                             angular.copy(scope.url, postGetURL);
                             postGetURL.$save(function(t) {
-                                scope.shorturl = t.shorturl;
-                                scope.hasShort = true;
-                                scope.sms.message = "Check this out, I think this is perfect for you. http://att.com/r?" + scope.shorturl;
-                                console.log("SMSSENt: scope.shorturl:" + scope.shorturl + " scope.url.longurl:" + scope.url.longurl);
+                                scope.url.shorturl = t.shorturl;
+                                scope.sms.message = "Check this out, I think this is perfect for you. http://att.com/r?" + scope.url.shorturl;
+                                console.log("SMSSENt: scope.shorturl:" + scope.url.shorturl + " scope.url.longurl:" + scope.url.longurl);
                             });
                         }
                     }
