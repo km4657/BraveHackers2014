@@ -1,16 +1,16 @@
 <section>
     <div>
-        <button class="btn btn-primary btn-small" ng-hide="hasShort" ng-click="getURL()"><i class="fa fa-share-alt"></i> Create Short URL</button>
-        <div class="field-group" ng-show="hasShort">
+        <button class="btn btn-primary btn-small" ng-show="(url.shorturl==='')" ng-click="getURL()"><i class="fa fa-share-alt"></i> Create Short URL</button>
+        <div class="field-group" ng-show="(url.shorturl!=='')">
             <ul class="sharerow content-pad" style="width: 100%">
                 <li class="sharerow share-icon">
-                    <a class="twitter-share-button" data-lang="en" href="https://twitter.com/share?text=Check%20this%20out%2C%20I%20think%20this%20is%20perfect%20for%20you&url=http%3A%2F%2Fgacdtl03ml5174.itservices.sbc.com%3A8080%2Fr%3F{{shorturl}}"></a> 
+                    <a class="twitter-share-button" data-lang="en" ng-href="https://twitter.com/share?text=Check%20this%20out%2C%20I%20think%20this%20is%20perfect%20for%20you&url=http%3A%2F%2Fat.com%3A8080%2Fr%3F{{url.shorturl}}"></a> 
                 </li>
                 <li class="sharerow">
                     <button class="btn btn-success btn-small sms-button"  ng-click="clickedSMS()"><i class="fa fa-comment-o"></i> SMS</button>
                 </li>    
                 <li class="sharerow" style="right:10px">
-                    <a ng-href="http://gacdtl03ml5174.itservices.sbc.com:8080/r?{{shorturl}}"><button class="btn btn-success btn-small preview-button"  ng-click="preview()"><i class="fa fa-external-link-square"></i> Preview</button></a>
+                    <a href=""><button class="btn btn-success btn-small preview-button"  ng-click="preview()"><i class="fa fa-external-link-square"></i> Preview</button></a>
                 </li>    
             </ul>
         </div>

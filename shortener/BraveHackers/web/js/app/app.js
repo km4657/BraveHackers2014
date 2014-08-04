@@ -23,5 +23,8 @@ config(['$routeProvider', function($routeProvider) {
     domains:function(MyURLs, $route){return MyURLs.getDomains.get({id:$route.current.params.id});}
   }});
   $routeProvider.when('/recommend', {templateUrl: 'partials/recommend.html', controller: 'RecommendCtrl'});
+  $routeProvider.when('/redirect/:id', {templateUrl: 'partials/redirect.html', controller: 'RedirectCtrl', resolve:{
+    URL:function(MyURLs, $route){return MyURLs.selectedURL.get({id:$route.current.params.id});}
+  }});
   $routeProvider.otherwise({redirectTo: '/home'});
 }]);

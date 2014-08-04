@@ -28,31 +28,37 @@ angular.module('myApp.directives', [])
                         });
                         scope.created = false;
                         scope.url.shorturl = "";
+                        scope.url.urlName = "";
+
                     });
                 }
             }
         })
-        .directive('share', function(version, PostSendSms, PostGetURL, $modal, $log, $rootScope) {
+        .directive('share', function(version, PostSendSms, PostGetURL, $modal, $log, $window) {
             return {
                 replace: 'true',
                 templateUrl: '/partials/icon-row.html',
                 restrict: 'E',
                 link: function(scope, element, attrs) {
                     if (scope.url === undefined)
-                        scope.url = {"category": "", "email": "", "expiredurl": "", "longurl": "", "urlName": "", "vanityurl": "", "description": "", "expireDate": ""};
+                        scope.url = {"shorturl": "", "category": "", "email": "", "expiredurl": "", "longurl": "", "urlName": "", "vanityurl": "", "description": "", "expireDate": ""};
 
                     if (scope.sms === undefined)
                         scope.sms = {"tn": "4044080667", "message": "TESTING"};
 
+                    scope.isShort = function() {
+                        return (scope.url.shorturl === '')
+                    };
                     scope.getURL = function() {
                         if (scope.url.longurl === "")
                             return;
                         if (scope.url.shorturl === "") {
+
                             var postGetURL = new PostGetURL();
                             angular.copy(scope.url, postGetURL);
                             postGetURL.$save(function(t) {
                                 scope.url.shorturl = t.shorturl;
-                                scope.sms.message = "Check this out, I think this is perfect for you. http://att.com/r?" + scope.url.shorturl;
+                                scope.sms.message = "Check this out, I think this is perfect for you. http://at.com/r?" + scope.url.shorturl;
                                 console.log("SMSSENt: scope.shorturl:" + scope.url.shorturl + " scope.url.longurl:" + scope.url.longurl);
                             });
                         }
@@ -60,7 +66,7 @@ angular.module('myApp.directives', [])
 
 //########## Preview    
                     scope.preview = function() {
-
+                        $window.open('http://at.com:8080/r?'+scope.url.shorturl);
                     }
 
 //########## SMS Integration               

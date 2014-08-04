@@ -61,9 +61,9 @@ public class Redirect extends HttpServlet {
 
         try {
             urlList = (UrlList) urlListFacade.findByShorturl(shorturl);
-            if (urlList.getDescription()!=null) {
+            if ((urlList.getDescription()!=null)||(urlList.getDescription()=="")) {
                 request.setAttribute("URL", urlList);
-                request.getRequestDispatcher("/faces/redirect.jsp").forward(request, response);
+                request.getRequestDispatcher("/redirect/redirect.jsp").forward(request, response);
             }
             else 
                 response.sendRedirect(urlList.getLongurl());

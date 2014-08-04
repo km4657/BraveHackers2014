@@ -37,7 +37,7 @@
                 </thead>
                 <tbody class="list">
                     <tr ng-repeat="d in domains">
-                        <td class="shorturl">{{d.domain}}</td>
+                        <td class="shorturl" style="overflow: hidden;max-width: 250px">{{d.domain}}</td>
                         <td>{{d.totalClicks}}</td>
                     </tr>
                 </tbody>

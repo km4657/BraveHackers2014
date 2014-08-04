@@ -1,8 +1,19 @@
-<section>
-            <h1>I can help you with that.</h1>
+<section class="row main-content">
+    <div class="span12">
+        <div class="page-header">
+            <div class="pull-left">
+            </div>
+            <h1>I can help you with that</h1>
 
-            <h3><%=((UrlList)request.getAttribute("URL")).getDescription()%></h3>
-            <form action="<%=((UrlList)request.getAttribute("URL")).getLongurl()%>">
-                <input type="submit" value="Next >">
-            </form>
+        </div>
+        <div class="row-fluid-nowrap content-pad">
+
+            <h3>{{url.description}}</h3>
+            <a href="{{url.longurl}}">
+                <button type="submit" class="btn btn-large btn-large btn-block">
+                    Next >
+                </button>
+            </a>
+        </div>
+    </div>
 </section>

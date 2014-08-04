@@ -1,0 +1,39 @@
+<html ng-app>
+    <head>
+<meta name="viewport" content="width=device-width, user-scalable=no">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.16/angular.min.js"></script>
+    </head>
+    <body>
+        <div>
+            <label>Your Domain:</label>
+            <input type="text" ng-model="url" placeholder="ex: yourmachine:port" style="width: 1255px"> 
+
+            <ul>
+                <li ng-click="url = 'gacdtl03ml5174.itservices.sbc.com:8080'">Click to use Weo's: gacdtl03ml5174.itservices.sbc.com:8080</li>
+                <li ng-click="url = 'gacdt201km4657.itservices.sbc.com:8080'">Click to use Kelley's: gacdt201km4657.itservices.sbc.com:8080</li>
+                <li ng-click="url = 'njcdtl02mr271r.itservices.sbc.com:8080'">Click to use Maria's: njcdtl02mr271r.itservices.sbc.com:8080</li>
+                <li ng-click="url = 'gacdtl06vm7634.itservices.sbc.com:8080'">Click to use Zaniah's: .itservices.sbc.com:8080</li><li ng-click="url = 'njcdtl02mr271r.itservices.sbc.com:8080'">Click to use Maria's: njcdtl02mr271r.itservices.sbc.com:8080</li>
+                <li ng-click="url = 'gacdtl06vm7634.itservices.sbc.com:8080'">Click to use Steve's: .itservices.sbc.com:8080</li>
+           
+            </ul>
+
+            <hr>
+            <label>This page with your domain:</label>
+            <a href="http://{{url}}/home.html">http://{{url}}/home.html</a>
+            <br>
+            <label>Mobile App:</label>
+            <a href="http://{{url}}/faces/index.html">http://{{url}}/faces/index.html</a>
+            <br>
+            <label>REST Test:</label>
+            <a href="http://{{url}}/test-resbeans.html?domain={{url}}">http://{{url}}/faces/shortener/testREST.jsp</a>
+            <br>
+            <label>Edit Presentation</label>/presentation/Mobilithon_Final_Presentation_Bravehackers.pptx
+            <br>
+            <label>See Latest Commits</label><a href="https://codecloud.web.att.com/projects/ST_MCOEMT/repos/team04/commits">CodeCloud</a>
+            <hr>
+            <br>
+        </div>
+
+    </body>
+</html>
+
