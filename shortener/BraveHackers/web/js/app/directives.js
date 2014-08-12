@@ -28,8 +28,6 @@ angular.module('myApp.directives', [])
                         });
                         scope.created = false;
                         scope.url.shorturl = "";
-                        scope.url.urlName = "";
-
                     });
                 }
             }
